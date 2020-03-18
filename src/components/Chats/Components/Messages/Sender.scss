@@ -1,0 +1,53 @@
+.sendHeader{
+
+    display: flex;
+    flex-direction: row ;
+    margin-left: 20px;
+    }
+    .sendHeader p{
+      margin-left: 20px;
+        }
+        .nom{
+            color: #111f35;
+        }
+        .time{
+            color: gray;
+        }
+    .sendcontaint{
+        // background-color: red;
+        display: flex;
+    flex-direction: row 
+    }
+    .messageSend{
+        background-color: #ffffff;
+        border-top-right-radius: 22px;
+        border-bottom-right-radius: 22px;
+        border-bottom-left-radius: 22px;
+        width: 60%;
+        margin-left: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
+    .messageSend p {
+        color:black;
+        margin-left: 10px;
+        word-wrap:  break-word;
+        width: 100px;
+        white-space: wrap;
+    }
+    .icone{
+        // background-color: yellowgreen;
+        display: flex;
+        align-self:center;
+    }
+    .sendContainer{
+        width: 100%;
+        // padding-right: 20px;
+    }
+    .svgIconSeensend{
+        display: flex;
+        align-self:center;
+        margin-right: 30px;
+      
+    }

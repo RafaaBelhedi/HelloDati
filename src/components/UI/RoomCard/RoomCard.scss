@@ -1,0 +1,80 @@
+.room-card {
+  .popup-content {
+    width: 25% !important;
+  }
+
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  // height: 70px;
+  width: 48%;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+  background: #efefef;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.room-card p {
+  margin: 3px;
+  padding: 0;
+}
+
+.room-button {
+  display: flex;
+}
+
+.room-button button {
+  background-color: #c5c5c5;
+  color: white;
+  border: 1px solid #a5a5a5;
+  height: 30px;
+  border-radius: 50px;
+  margin-right: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.room-button img {
+  cursor: pointer;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.room-card span {
+  width: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  height: 10px;
+
+}
+
+.popup-content {
+  border-radius: 5px;
+  width: 300px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  // height: 70px !important;
+  border-radius: 5px;
+  padding: 25px;
+  background: white;
+  flex-wrap: wrap;
+
+}
+
+.button_actions {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.notif_message {
+  color: red;
+}

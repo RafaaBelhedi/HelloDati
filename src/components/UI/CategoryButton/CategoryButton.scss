@@ -1,0 +1,23 @@
+.category-button{
+  background: #283754;
+  border:none;
+  color: #bcbcbc;
+  height:40px;
+  margin:10px;
+  border-radius:5px;
+  display:flex;
+  width:120px;
+  align-items: center;
+  text-align: left;
+  font-weight: bold;
+}
+
+.category-button img{
+  height: 30px;
+  width: 30px;
+  margin-right:10px;
+}
+
+.category-container{
+  position: relative;
+}

@@ -1,0 +1,53 @@
+@import '../../assets/var';
+
+#root {
+  display: grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: minmax(200px, 18fr) 103fr;
+  grid-template-rows: minmax(150px, 3fr) 11fr;
+  grid-template-areas: "sidebar header"
+    "sidebar main"
+}
+
+@media (max-width: 1024px) {
+
+  #root {
+    grid-template-columns: minmax(200px, 22fr) 103fr;
+    grid-template-rows: minmax(50px, 4fr) 11fr;
+  }
+
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  grid-area: header;
+  background: white;
+}
+
+nav {
+  grid-area: sidebar;
+  background: $hellodati-blue;
+}
+
+main {
+  grid-area: main;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+.blur {
+  -webkit-filter: blur(3.5px);
+  -moz-filter: blur(3.5px);
+  -o-filter: blur(3.5px);
+  -ms-filter: blur(3.5px);
+  filter: blur(3.5px);
+}

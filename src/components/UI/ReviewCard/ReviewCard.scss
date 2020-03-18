@@ -1,0 +1,48 @@
+.review_card {
+  background-color: #f7f7f7;
+  width: 42%;
+  height: 165px;
+  margin: 14px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  display: flex;
+  padding: 2px;
+
+  .writed_at {
+    font-size: 11px;
+    color: #555555;
+    margin-bottom: 1px;
+    margin-top: 1px;
+  }
+
+  .logo {
+    width: 43.9px;
+    height: 44px;
+    border-radius: 30px;
+  }
+
+  h4 {
+    color: #282828;
+    margin-bottom: -6px;
+  }
+
+  .comment {
+    margin-top: -2px;
+    font-size: 13px;
+  }
+}
+
+.flag {
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: 22px;
+  margin-left: 10px;
+}
+
+.review_header {
+  display: flex;
+}
+
+.stars {
+  margin-bottom: 6px;
+}

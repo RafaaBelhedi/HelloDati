@@ -1,0 +1,96 @@
+.order-popover{
+  background: #111F35;
+  color: white;
+  padding: 10px;
+  border-radius: 30px;
+
+  p{
+    padding:0;
+    margin:0;
+  }
+
+  path, polygon{
+    fill: white;
+  }
+
+  svg{
+    height: 17px;
+    width: 17px;
+    margin-right:5px;
+    padding:5px;
+    border-radius: 50%;
+  }
+
+  .button-container{
+    display:flex;
+    display:-ms-flexbox;
+    display:-webkit-flex;
+  }
+
+  .accept,.deny{
+    display:flex;
+    display:-ms-flexbox;
+    display:-webkit-flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 50px;
+    transition: 0.5s;
+    width: 28px;
+    cursor: pointer;
+    overflow: hidden;
+    height: 35px;
+  }
+  .accept:not(.expanded),.deny:not(.expanded){
+    padding: 3px;
+  }
+  .expanded{
+    width: 150px;
+  }
+
+  .deny{
+    margin-left:20px;
+    background:#AE1B1B;
+
+    svg{
+      background-color: #770B0B;
+  
+    }
+  }
+  .accept{
+    background:#3B8703;
+
+    svg{
+      background-color: #214B02;
+  
+    }
+  }
+  .accept-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    path,polygon{
+      fill: #677fa8;
+    }
+    p{
+      text-align: center;
+      display: inline!important;
+      font-size: 1.2em;
+    }
+  }
+
+  .deny-container{
+    p{
+      margin: 10px 0 10px 0;
+    }
+    textarea{
+      border: none;
+      background-color: #314669;
+      border-radius: 20px;
+      width: 80%;
+      height: 100px;
+      margin-bottom: 10px;
+      padding: 5px;
+      color: white;
+      font-size: 1.2em;
+    }
+  }
+}

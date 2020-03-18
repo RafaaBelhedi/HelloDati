@@ -1,0 +1,71 @@
+.message-erreur {
+  color: red;
+  padding-left: 3%;
+}
+
+.message-succes {
+  color: green;
+  margin: 20px;
+  width: 50%;
+}
+
+.restaurant-form-container-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 20px;  
+  
+}
+
+.form-navigator {
+  margin-left: -10em;
+}
+
+.restaurant-c15-phone-one {
+  position: relative;
+}
+
+.restaurant-preview-box-one {
+  position: relative;
+  top: -430px;
+  width: 234px;
+  height: 100px;
+  background-color: #ffffff;
+  margin-left: 14px;
+  border-radius: 5px;
+  z-index: 1;
+  border-bottom: 4.5px solid #739147;
+}
+
+.restaurant-preview-box-one p {
+  position: absolute;
+  font-size: 12.7px;
+  width: 79px;
+  margin-left: 7px;
+  word-wrap: break-word;
+  height: 30px;
+  overflow: hidden;
+  color: #739147;
+}
+
+.restaurant-preview-box-one img {
+  position: absolute;
+  width: 142px;
+  height: 99.7%;
+  left: 92px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.arrow-right {
+  position: relative;
+  left: 105px;
+  top: 160px;
+  border-top: 6.5px solid transparent;
+  border-bottom: 6.5px solid transparent;
+  border-left: 6.5px solid #ffffff;
+  z-index: 2;
+}
+
+.form-navigator{
+grid-area: form;
+}

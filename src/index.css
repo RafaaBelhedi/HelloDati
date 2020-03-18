@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: "Champagne Bold", -apple-system, "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+  flex-wrap: wrap;
+}
+
+@font-face {
+  font-family: Champagne;
+  src: url('./assets/Champagne & Limousines.ttf');
+}
+
+@font-face {
+  font-family: Champagne Italic;
+  src: url('./assets/Champagne & Limousines Italic.ttf');
+}
+
+@font-face {
+  font-family: Champagne Bold;
+  src: url('./assets/Champagne & Limousines Bold.ttf');
+}
+
+@font-face {
+  font-family: Champagne Italic Bold;
+  src: url('./assets/Champagne & Limousines Bold Italic.ttf');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

@@ -1,0 +1,97 @@
+.button .button_shift{
+    background-color:  #1a3e64;
+    display: flex;
+    // justify-content: space-evenly;
+    border-radius: 5px;
+    width: 150px;
+    color: #ffff;
+    margin: 3%;
+    cursor: pointer;
+    align-items: center;
+    height: 40px;
+    img{
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+    p{
+        margin-left: 2%;
+    }
+    // margin-left: -3%;
+}
+.opening_time{
+    padding-left: 3%;
+    display: flex;
+    justify-content: space-between;
+    // width: 100%;
+    margin-top: 3%;
+    padding-top: 2%;
+    background-color: #eeeeee;
+    
+}
+.shifts{
+    margin-left: -5%;
+}
+.button_shift .img {
+margin-left: 4%;
+}
+.details{
+    margin-left: -3%;
+p{
+    color: #111f35;
+    margin: 3%;
+}} 
+.opening_time .times_container{
+    width: 70%;
+    margin-left: -1%;
+    // background-color: rgb(224, 180, 209);
+}
+
+.opening_time .days_container{
+    width: 30%;
+    border-left: 2px solid #d9d9d9;
+    // height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 200px;
+    .days_groupe{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+    }
+    .one_day{
+        display: flex;
+        justify-content: flex-start;
+        span{
+            margin-left: 11%;
+        }
+    }
+}
+.opening_time .days_container .day {
+    padding-bottom: 3.5px;
+    height: 45px;
+    width: 50px;
+    // background-color: #1a3e64;
+    border-radius: 50%;
+    margin-right: 5px;
+    align-items: center;
+    display: flex;
+    color: white;
+    cursor: pointer;
+    justify-content: center;
+}
+.opening_time .days_container .day p {
+ padding-left: 20%;
+}
+.opening_time .days_container div {
+display: flex;
+}
+.title{
+    display: flex;
+    align-items: center;
+    p{margin-right: 3%;}
+}

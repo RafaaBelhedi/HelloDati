@@ -1,0 +1,20 @@
+.chatContainer{
+    display: flex;
+    flex-direction: row ;
+    margin:30px;
+  
+ 
+}
+.serviceContainer{
+    width: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.contactContainer{
+    width: 30%;
+   
+}
+.messageContainer{
+    width: 60%;
+}

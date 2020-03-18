@@ -1,0 +1,73 @@
+.device-card {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  width: 48%;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  background: #efefef;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+@media screen and (max-width:970px) {
+  .device-card {
+    width: 90%;
+  }
+}
+
+.device-card p {
+  margin: 3px;
+  padding: 0;
+}
+
+.device-button {
+
+  display: flex;
+  align-items: center;
+}
+
+.device-button {
+  background-color: #c5c5c5;
+  color: white;
+  border: 1px solid #a5a5a5;
+  height: 30px;
+  border-radius: 50px;
+  font-weight: bolder;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.device-card span {
+  width: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  height: 10px;
+}
+
+.device_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup_confirmation {
+  margin-left: 15px;
+  margin-top: 5px;
+
+  .trash {
+    height: 20px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+.button_actions{
+  display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}

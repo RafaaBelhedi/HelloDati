@@ -1,0 +1,64 @@
+.dish_modal {
+  background-color: #fff;
+  position: absolute;
+  width: 826px;
+  height: 373px;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0.2);
+
+  .image {
+    width: 390px;
+    height: 355px;
+    border-radius: 9px;
+    margin: 8px;
+  }
+
+  .dish_information {
+    display: flex;
+
+    .text_description {
+      margin: 25px;
+      display: flex;
+      flex-direction: column;
+
+      .price {
+        margin-left: 0px;
+        margin-top: 20px;
+        font-size: 35.5px;
+        color: #d54751;
+
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: #468dc5;
+  }
+
+  .close_button {
+    position: relative;
+    left: 787px;
+    bottom: 370px;
+    margin-right: 10px;
+    font-size: 55px;
+    color: #999999;
+  }
+
+  .close_button:hover {
+    color: #111F35;
+    cursor: pointer;
+  }
+
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}

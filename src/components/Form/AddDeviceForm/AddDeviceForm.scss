@@ -1,0 +1,184 @@
+@import '../../../assets/var';
+/* Add device style
+.
+.
+.
+.
+.
+.
+*/
+
+
+.device-form-adds{
+  width: 100%;
+  // height: 230px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+}
+.title-device {
+  display: flex;
+}
+
+.title-device img {
+  margin-top: -17px;
+  margin-right: 8px;
+}
+.device-form-adds .device-header{
+  width: 100%;
+  background-color: #00a8e0;
+  height: 54px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding:20px;
+  color: white;
+  // display: flex;
+}
+
+.device-form-adds>.device-inputs {
+  select, input{
+  width: 31%;
+  height: 50px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
+  }
+}
+
+.device-form-adds .device-inputs div{
+  margin-left: 20px;
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  flex-flow: column;
+  margin-bottom: 20px;
+  width: 45%;
+  align-items: flex-start;
+}
+
+.device-form-adds .device-inputs label{
+  margin-bottom: 20px;
+}
+
+.device-form-adds button{
+
+  
+
+  border-radius: 5px !important ;
+  border: none;
+  background-color: $hellodati-blue;
+  color: white;
+  margin: 1%;
+  padding: 1%;
+  width: 31%;
+  height: 50px;
+}
+
+// .message-succes p{
+//   padding-left: 40%;
+//   color:#ffff;
+//   margin: 20px;
+//   border :1px  #7BCF6F ; 
+//   background-color: #7BCF6F;
+//   border-radius: 5px;
+//   height: 30px;
+//   padding-top: 1%;
+// }
+// .message-echec p{
+//   padding-left: 40%;
+//   color:#ffff;
+//   margin: 20px;
+//   border :1px  #FA5B39 ; 
+//   border-radius: 5px;
+//   background-color:#FA5B39;
+//   height: 30px;
+//   padding-top: 1%;
+// }
+// .message-succes{
+//   width: 100% !important; 
+//   margin:0  !important; 
+// }
+
+.device-inputs input:valid {
+  border:1px solid #80d320;
+  background: url(/img/ui/correct.png) 98% center no-repeat ;
+}
+.device-inputs input:focus:invalid {
+  border:1px solid red;
+  background: url(/img/ui/rong.png) 98% center no-repeat  ;
+}
+
+.device-inputs input::-webkit-outer-spin-button,
+.device-inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.my-modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.valide-modal{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  margin: 80px;
+}
+.valide-modal img {
+  padding: 5px;
+}
+.valide-modal div {
+  padding: 5px;
+  color: #219431;
+  border-bottom: 3px solid #219431
+}
+.close {
+  background: none;
+  border: none;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: 280px;
+  margin-top: -180px;
+  color: #999999;
+  padding-left: 90px;
+  padding-top: -120px;
+  font-size: large;
+}
+
+
+
+.echec-modal{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  margin: 80px;
+}
+.echec-modal img {
+  padding: 5px;
+}
+.echec-modal div {
+  padding: 5px;
+  color: #e76646;
+  border-bottom: 3px solid #e76646
+}
+.echec-modal button {
+  background: none;
+  border: none;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: 280px;
+  margin-top: -180px;
+  color: #999999;
+  padding-left: 90px;
+  padding-top: -120px;
+  font-size: large;
+}
+.message-erreur{
+  color: red;
+  padding-left: 3%;
+
+}

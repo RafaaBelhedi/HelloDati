@@ -1,0 +1,74 @@
+
+.InboxContainer{
+// background-color: rosybrown;
+display: flex;
+flex-direction: row;
+height:100px;
+width:100%;
+// padding: 10px;
+cursor: pointer;
+border-bottom-right-radius: 10px;
+border-top-right-radius: 10px;
+
+}
+.ImageMsg{
+// background-color: whitesmoke;
+width: 20%;
+display: flex;
+align-self: center
+}
+.TextMsg{
+display: flex;
+justify-content: space-between;
+width: 60%;
+padding: 10px
+}
+.nameContact{
+   color: white;
+    } 
+    .msgContact{
+        color: #9fafca;
+    }
+.TimeMsg{
+// background-color: red;
+width: 20%;
+display: flex;
+align-self: center;
+flex-direction: column;
+}
+.TimeMsg p {
+    color: #9fafca;
+    }
+.imgContact{
+    margin-left: 10px;
+}
+.msg_not_seen{
+    background-color: brown;
+}
+.name_and_room{
+display: flex;
+justify-content: space-between;
+color: white;
+
+}
+.my_room{
+    p{
+        color: white;
+    }
+}
+
+
+.my_room_number{
+    p{
+        font-family: cursive;
+        color: #ffe80a;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+.my_message_receive{
+    color: white;
+    // font-family: cursive;
+
+}

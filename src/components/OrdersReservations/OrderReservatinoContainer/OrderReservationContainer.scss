@@ -1,0 +1,76 @@
+@import '../../../assets/var';
+
+.history-items{
+  overflow-y: auto;
+  height: 45vh;
+}
+
+.history-items thead{
+  background: #7f8ba0;
+  color: lightgray;
+  font-weight: normal;
+  padding: 100px;
+  
+}
+
+.history-items th,td{
+  padding: 11px;
+  position: relative;
+  height: 100%;
+}
+
+.history-items thead tr{
+  border-radius: 10px;
+}
+
+.history-items tbody tr:nth-child(even){
+  background: #F6F6F6
+}
+
+.history-items table{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  text-align: center;
+}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.history-items span{
+  height: 10px;
+  width:10px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.history-items td.status{
+  display:flex;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+.history-items td img{
+  height: 15px;
+  cursor: pointer;
+}
+
+.history-items .popover{
+  right:100%;
+  z-index: 10;
+  position:absolute
+}
+
+.popover.hidden{
+  display: none;
+}
+
+.relative{
+  position: relative;
+}

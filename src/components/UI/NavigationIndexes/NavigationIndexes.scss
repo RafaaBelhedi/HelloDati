@@ -1,0 +1,102 @@
+.line{
+  height:4px;
+  width:50px;
+  background-color: #c5c5c5
+}
+
+.navigation-index{
+  position: relative;
+  background: rgb(160,160,160);
+  background: linear-gradient(183deg, rgba(180,180,180,1) 0%, rgba(197,197,197,1) 50%, rgba(213,213,213,1) 100%);
+  padding:5px;
+  width:30px;
+  height:30px;
+  text-align: center;
+  color:#838383;
+  text-shadow: 0.5px 0.5px 0px #FFFFFF;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: .3s linear;
+}
+
+.line:nth-last-child(2){
+  display:none
+}
+.navigation-index:after {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top:auto;
+  margin-bottom: auto;
+  top:0;
+  bottom: 0;
+  left:97.5%;
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #c5c5c5;
+  border-right: 10px solid transparent;
+}
+
+.navigation-index:before {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top:auto;
+  margin-bottom: auto;
+  top:0;
+  bottom: 0;
+  right:97.5%;
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #c5c5c5;
+}
+.navigation-index:nth-child(2):before {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top:auto;
+  margin-bottom: auto;
+  top:0;
+  bottom: 0;
+  right:50%;
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.navigation-index:nth-last-child(3):after {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-top:auto;
+  margin-bottom: auto;
+  top:0;
+  bottom: 0;
+  left:95%;
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.navigation-index.active{
+  background: #f7f7f7;
+  border: #c5c5c5 2px solid;
+  text-align: center;
+  text-anchor: start;
+  -webkit-box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,1);
+  -moz-box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,1);
+  box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,1);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

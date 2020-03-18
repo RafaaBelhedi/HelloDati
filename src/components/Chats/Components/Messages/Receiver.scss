@@ -1,0 +1,77 @@
+.ReceiverHeader{
+
+display: flex;
+flex-direction: row ;
+margin-right: 20px;
+justify-content: flex-end;
+}
+.ReceiverHeader p{
+  margin-right: 20px;
+    }
+    .nom{
+        color: black;
+    }
+    .time{
+        color: gray;
+    }
+.Receivercontaint{
+  
+    display: flex;
+flex-direction: row ;
+justify-content: flex-end;
+margin-right: 20px;
+}
+.message{
+    background-color: #111f35;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    width: 60%;
+    margin-left: 30px;
+    display: flex;
+    align-self:flex-end;
+    word-wrap:  break-word;
+    justify-content: flex-end;
+
+}
+.message p {
+    color:white;
+    margin-left: 10px;
+    margin-right: 10px;
+    // background-color: firebrick;
+}
+.icone{
+    // background-color: yellowgreen;
+    display: flex;
+    align-self:center;
+}
+
+.svgIconSeen{
+    display: flex;
+    align-self:center;
+    margin-right: 30px;
+    // background-color: gold;
+}
+
+
+
+
+
+
+.ReceiverContainer{
+    // display: flex;
+    // flex-direction: row ;
+    // justify-content:flex-end;
+    // background-color: yellowgreen;
+}
+
+.ImgContainer{
+    // background-color: red;
+    margin-top: 10px;
+    // display: flex;
+    // align-self:center;
+
+}
+.MsgContainer{
+    // background-color: saddlebrown;
+}

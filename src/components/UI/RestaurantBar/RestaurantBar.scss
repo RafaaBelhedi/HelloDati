@@ -1,0 +1,65 @@
+@import "../../../assets/var.scss";
+
+.restaurant-bar {
+  background-color: $hellodati-blue;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.restaurant-bar svg {
+  height: 40px;
+  margin: 5px;
+}
+
+.restaurant-bar path {
+  fill: white
+}
+
+.restaurant-bar .description {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  height: 100%;
+  align-items: center;
+}
+
+.restaurant-bar p {
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+}
+
+.restaurant-bar .title {
+  color: white;
+  margin-right: 25px;
+}
+
+.restaurant-bar .categories {
+  justify-items: center;
+  display: flex;
+  align-items: center;
+  right: 0
+}
+
+.restaurant-bar .categories>* {
+  margin-right: 20px
+}
+
+.restaurant-bar .active {
+  background-color: #3f86be
+}
+
+.restaurant-bar a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  transition: .5s;
+  border-radius: 50px;
+}

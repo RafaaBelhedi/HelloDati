@@ -1,0 +1,137 @@
+@import '../../assets/var';
+
+.employee-list {
+
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ .emp-butt {
+   margin-left: 15px;
+   margin-top: 5px;
+   display: flex;
+   justify-content: flex-start;
+ }
+
+ .emp-butt img {
+   height: 40px;
+   margin-top: 10px;
+   margin-right: 10px;
+ }
+
+
+
+.employee-search{
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  justify-content: space-evenly;
+  display: -webkit-inline-flex;
+  width: 90%;
+  background-color: $hellodati-blue;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+  // display: inline-block;
+  border-radius: 5px;
+
+  label {
+    width: 25%;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+
+  .inputs {
+    display: inline-flex;
+    display: -ms-flexbox;
+    // justify-content: flex-end;
+    display: -webkit-inline-flex;
+    // flex-wrap: wrap;
+    // margin-top:10px;
+
+  }
+}
+.employees-container{
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 3%; // added
+  margin-right: 3%; //added
+  >a{
+    // height: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    width: 47%; //edited
+    color: white;
+    display: inline-block;
+    line-height: 57px;
+    background-color: rgb(0, 168, 224);
+
+    :active,
+    :link,
+    :visited {
+      color: white;
+    }
+  }
+
+  >* {
+    height: 70px;
+    margin:5px;
+    width: 47%; //edited
+    margin-top: 1%; // added
+    margin-right: 0.5%; //added
+  }
+}
+
+.employee-search input,
+.employee-search a {
+  background-color: rgb(54, 73, 105);
+  height: 100%;
+  border-radius: 5px;
+  width: 70%;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  box-sizing: border-box;
+  padding-left: 20px;
+  color: white;
+}
+
+.employee-search input::placeholder {
+  color: #879bad;
+}
+
+.employee-search p {
+  margin: 0;
+  padding: 0;
+}
+
+.employee-header p {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  margin-right: 20px;
+}
+
+.employee-header {
+  margin-bottom: 20px;
+}

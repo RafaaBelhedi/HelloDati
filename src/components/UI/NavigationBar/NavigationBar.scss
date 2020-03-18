@@ -1,0 +1,10 @@
+.navigation-bar{
+  grid-area: navigation;
+  margin-top:10px;
+  width: 100%;
+  display:flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,22 @@
+@import '../../../assets/var';
+
+.navigation-button{
+  background-color: $restaurant-blue;
+  color: white;
+  padding: 6px;
+  
+  border: none;
+  border-radius: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.navigation-button path{
+  fill: $hellodati-yellow;
+}
+
+.navigation-button svg{
+  margin-right: 5px;
+  margin-left: 5px;
+}

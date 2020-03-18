@@ -1,0 +1,10 @@
+@import "../../assets/var.scss";
+
+.content {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  -ms-flex-wrap: wrap !important;
+  justify-content: space-evenly !important;
+}

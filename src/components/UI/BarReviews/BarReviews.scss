@@ -1,0 +1,78 @@
+.Bar_review {
+  color: #ffffff;
+  display: flex;
+  cursor: pointer;
+  background-color: #293953;
+  padding: 8px;
+  border-radius: 15px;
+}
+
+.Bar_review_logo {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.bar_modal {
+  position: absolute;
+  width: 948px;
+  height: 700px;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0.2);
+  background-color: #ffffff;
+  overflow: scroll;
+
+  .header {
+    position: relative;
+    left: 34px;
+    top: -60px;
+    width: 50%;
+    display: flex;
+
+    span {
+      display: block;
+      margin-top: 19px;
+      margin-left: 10px;
+      color: #636363;
+      font-size: 12px;
+    }
+  }
+
+  img {
+    width: auto;
+    height: 200px;
+    border-radius: 9px;
+    margin: 20px;
+  }
+
+  .bar_close_button {
+    position: relative;
+    left: 895px;
+    bottom: 5px;
+    margin-right: 10px;
+    font-size: 55px;
+    color: #999999;
+  }
+
+  .bar_close_button:hover {
+    color: #111f35;
+    cursor: pointer;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .reviews_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    top: -70px;
+  }
+}

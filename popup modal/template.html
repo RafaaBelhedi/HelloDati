@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>Template</title>
+
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+
+  <body>
+    <div>
+    <div class="container">
+        <div id="c15-phone">
+          <p>APERÇU</p>
+          <img src="c15pro.png" alt="mobile-phone" />
+        </div>
+        <div class="forms">
+            <div id="target-container">
+
+                <div class="title-target">
+          
+                  <p>CIBLAGE</p>
+          
+                </div>
+          
+                <div class="body-target">
+          
+                  <p>Envoyer à tout le monde ou cibler des utilisateurs.</p> 
+          
+                  <div class="target">
+          
+                    <label class="target-label">
+          
+                        <div class="radio">
+          
+                          <div class="radio-content" >
+          
+                            <img src="all-the-world.png" alt="people-image" />
+          
+                            <input type="radio" name="target" /> 
+          
+                            <span>Tout le monde</span>
+          
+                            <span class="checkmark"></span>
+                          </div>
+          
+                        </div>
+          
+                    </label>
+          
+                    <div class="button">
+          
+                      <button class="button-target" id="button-target">
+          
+                        <div class="image"><img src="target.png" alt="target" /></div>
+          
+                        <div class="text">Créer un ciblage</div>
+          
+                      </button>
+          
+                    </div>
+          
+                  </div>
+          
+                </div>
+          
+              </div>
+          
+              <div id="notification-container">
+          
+                <div class="title-notification">
+          
+                  <p>NOTIFICATION</p>
+          
+                </div>
+          
+                <div class="body-notification">
+          
+                  <p>Ecrire votre message</p> 
+          
+                  <div class="first-container">
+                    <div class="text-container">
+                      <div class="title">
+                        <label for="title">
+                            <p>Titre*:</p>
+                        </label>
+                        <input type="text" name="notification_title" id="title">
+                        
+          
+                      </div>
+                      <div class="description">
+                          <label for="description">
+                              <p>Description*:</p>
+                          </label>
+                          <textarea name="notification_description" id="description"></textarea>
+                      </div>
+                    </div>
+                    <div class="image-container">
+                      <p>Image:</p>
+                      <img src="#" alt="">
+                    </div>
+                  </div>
+          
+                  <div class="second-container">
+                    <div class="price">
+                      <label for="price">
+                          <p>Prix:</p>
+                      </label>
+                      <input type="text" name="notification_price" id="price" placeholder="DT">
+                    </div>
+                    <div class="promo">
+                        <label for="promo">
+                            <p>Promo:</p>
+                        </label>
+                        <input type="text" name="notification_promo" id="promo" placeholder="%">
+                      </div>
+                  </div>
+          
+                </div>
+          
+              </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+      <div id="modal-container">
+        <div class="title-modal">
+            <div class="text">
+                <p>Créer un ciblage</p>
+            </div>
+            <div class="cross" id="cross">
+                <span>&times;</span>
+            </div>
+        </div>
+        <div class="body-modal">
+            <div class="platform">
+                <div class="text">Choisir un platforme:</div>
+                <button class="android">
+                    Android
+                </button>
+                <button class="ios">
+                     IOS
+                 </button>
+                <button class="osx">
+                    OS X
+                </button>
+                <button class="windows">
+                    Windows
+                </button>
+            </div>
+            <div class="first-button">
+                <button class="add-button">
+                    <div class="add-condition">
+                        <div class="icon">
+                            <img src="plus.png" alt="add" />
+                        </div>
+                        <div class="text">
+                            Ajouter une condition
+                        </div>
+                    </div>  
+                </button>
+            </div>
+            <div class="second-button">
+                <button class="save-button">
+                    <div class="save-target">
+                        <div class="icon">
+                            <img src="down-arrow.png" alt="save" />
+                        </div>
+                        <div class="text">
+                            Enregister les ciblages pour le futur
+                        </div>
+                    </div>  
+                    </button> 
+            </div>
+            
+        </div>
+
+        <div id="confirm-container">
+            <div class="confirm-button">
+                <button>
+                    <div class="confirm">
+                        <div class="image">
+                            <img src="tick.png" alt="tick" />
+                        </div>
+                        <div class="text">
+                            Valider
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+      <script src="modal.js"></script>
+    </div>
+  </body>
+
+</html>

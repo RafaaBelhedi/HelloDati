@@ -1,0 +1,17 @@
+.history{
+  border: gray 1px solid;
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  height: 100%;
+}
+
+.history-container>img{
+  height: 20px;
+  display: inline-block;
+}
+
+.history-container>p{
+  display:inline-block;
+  margin-left: 10px;
+}

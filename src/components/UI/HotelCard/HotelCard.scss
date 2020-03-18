@@ -1,0 +1,86 @@
+.hotel-card {
+  .popup-content {
+    width: 25% !important
+  }
+
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  // height: 70px;
+  width: 48%;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+  background: #efefef;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.hotel-card p {
+  margin: 3px;
+  padding: 0;
+}
+
+.hotel-button button {
+  background-color: #c5c5c5;
+  color: white;
+  border: 1px solid #a5a5a5;
+  height: 30px;
+  border-radius: 50px;
+  margin-right: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.hotel-button {
+  display: flex;
+}
+
+.hotel-button img {
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.hotel-card span {
+  width: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  height: 10px;
+
+}
+
+.popup-content {
+  border-radius: 5px;
+  width: 300px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70px;
+  border-radius: 5px;
+  padding: 25px;
+  background: white;
+  flex-wrap: wrap;
+
+}
+
+.modal {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.modal .header {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.button_actions {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}

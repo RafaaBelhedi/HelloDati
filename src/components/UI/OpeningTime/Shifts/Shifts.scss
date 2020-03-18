@@ -1,0 +1,43 @@
+.shift_container{
+    display: flex;
+    justify-content: space-around;
+    margin: 2%;
+}
+.opening_container{
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    height: 40px;
+    width: 30%;
+    // padding-left: 6%;
+    justify-content: center;
+    .input_shift{
+        width: 40%;
+        margin-left: 1% ;
+        border: none;
+    }
+    p{
+        display: flex;
+        align-self: center;
+        margin-right: 6px;
+    }
+}
+.closing_container{
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    height: 40px;
+    width: 30%;
+    // padding-left: 6%;
+    justify-content: center;
+    .input_shift{
+        width: 40%;
+        margin-left: 1%;
+        border: none;
+    }
+    p{
+        display: flex;
+        align-self: center;
+        margin-right: 6px;
+    }
+}

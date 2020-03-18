@@ -1,0 +1,22 @@
+.reservation-container{
+    display: flex;
+    justify-content:space-between;
+    // border-bottom:1px solid #111f35 ;
+    cursor: pointer;
+}
+.logo-container{
+    width: 15%;
+    padding-left: 3%
+}
+.details-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    color: #686868;
+}
+.time-container{
+    display: flex;
+    align-self:center;
+    padding-right: 2%;
+    color: #686868;
+}

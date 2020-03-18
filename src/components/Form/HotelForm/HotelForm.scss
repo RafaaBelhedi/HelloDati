@@ -1,0 +1,161 @@
+@import '../../../assets/var';
+/*
+edit toursit style
+.
+.
+.
+.
+.
+.
+.
+.
+.
+*/
+
+.hotel-form{
+  width: 100%;
+  // height: 230px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+}
+
+
+.hotel-form .device-header{
+  width: 100%;
+  background-color: #00a8e0;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding:20px;
+  color: white;
+  display: flex;
+  align-items: center ;
+}
+
+.title-hotel {
+  display: flex;
+  margin-top: 12px;
+}
+
+
+.title-hotel .text {
+  margin-top: 5px;
+}
+
+.title-hotel img {
+  margin-right: 1px;
+  margin-top: -6px;
+}
+
+
+
+.hotel-form > .device-inputs {
+  select, input{
+  
+  width: 100%;
+  height: 50px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
+  
+
+  }
+}
+
+.hotel-form .device-inputs div{
+  margin-left: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  flex-flow: column;
+  margin-bottom: 20px;
+  width: 450px;
+  align-items: flex-start;
+}
+
+.hotel-form .device-inputs label{
+  margin-bottom: 20px;
+}
+
+.hotel-form button{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: $hellodati-blue;
+  color: white;
+  width: 29%;
+  height: 50px;
+}
+.input-label-half-hotel-edit{
+  width: 30%;
+  margin:0;
+  padding:0;
+  
+}
+
+.input-half-hotel-edit{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 31%;
+  height: 50px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
+
+}
+
+
+.form-grouping-half-hotel-edit{
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  width: 100;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  
+}
+.form-grouping-half-hotel-edit input::placeholder {
+  color: #879bad;
+  padding-left: 4%;
+}
+// .form-grouping-half-hotel-edit input  {
+//   color: #879bad;
+//   padding-left: 4%;
+// }
+
+.form-grouping-one-hotel-edit{
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+.form-one-item-hotel-edit{
+  display: flex;
+  padding-left: 15px;
+  display: -ms-flexbox;
+  width: 100;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
+}
+.input-hotels{
+  padding-top: 1%;
+}
+
+// .form-one-item-hotel-edit .fileUploader {
+//   width: 95%;
+//   margin-left: 2.5%;
+// }

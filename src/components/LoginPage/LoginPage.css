@@ -1,0 +1,112 @@
+.login-container{
+    background-image: url('/img/login/login.jpg');
+    width:100vw;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: space-around;
+    align-content: space-around;
+    margin:auto;
+    height:100vh;
+    padding-top:30%;
+    padding-bottom:30%;
+    box-sizing: border-box;
+}
+.login-container> *{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:3%;
+    margin-bottom: 3%;
+}
+
+.login-container div:last-child{
+    width:100%;
+    display:inline-block;
+}
+
+.login-container img{
+    width:184px;
+    margin-bottom:30px;
+    height:auto
+}
+
+
+.dot{
+    height:14px;
+    margin-top:3px;
+    width: 14px;
+    background-color:#0a1526;
+    border-radius: 50%;
+}
+
+.login-container form{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dots{
+    display:block;
+}
+
+@media (max-width: 1024px) {
+    .dots{
+        display:none;
+    }
+    .login-form input{
+        display:block;
+        margin:auto;
+    }
+}
+
+
+.login-form input{
+    background: transparent;
+    border-radius:50px 50px 50px 50px;
+    height:42px;
+    min-width: 250px;
+    border: 1.5px solid white;
+    color: white;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.login-form #username{
+    background: url('/img/login/login-email.png') no-repeat scroll 11px 11px;
+    padding-left: 40px;
+}
+
+.login-form #password{
+    background: url('/img/login/login-password.png') no-repeat scroll 11px 11px;
+    padding-left: 40px;
+}
+
+.login-form button{
+    width:180px;
+    background-color: #071321;
+    border:none;
+    min-height: 42px;
+    display: block;
+    margin: auto;
+    margin-top:50px;
+    border-radius: 50px;
+    font-size: 1.2em;
+}
+
+.login-form button img{
+    margin:0;
+    margin-right:15px;
+    width:auto;
+    
+}
+.login-form button span{
+    margin-right:15px;
+}
+textarea:focus, input:focus, button:focus{
+    outline: none;
+}
+
+body{
+    overflow:hidden;
+}

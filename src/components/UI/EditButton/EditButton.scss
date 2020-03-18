@@ -1,0 +1,21 @@
+@import "../../../assets/var.scss";
+
+.edit-button {
+  background-image: url("/img/ui/edit.png");
+  background-size: auto 60%;
+  background-position-y: 50%;
+  background-position-x: 5px;
+  background-color: $hellodati-blue;
+  height: 30px;
+  color: white;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-radius: 50px;
+
+  border: none;
+}
+
+img {
+  cursor: pointer;
+}

@@ -1,0 +1,120 @@
+// .bar_modal {
+//   position: absolute;
+//   width: 948px;
+//   height: 300px;
+//   border-radius: 10px;
+//   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0.2);
+
+//   .close_button {
+//     position: relative;
+//     left: 900px;
+//     bottom: 200px;
+//     margin-right: 10px;
+//     font-size: 55px;
+//     color: #999999;
+//   }
+
+//   .close_button:hover {
+//     color: #111F35;
+//     cursor: pointer;
+//   }
+
+//   .Overlay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-color: rgba(0, 0, 0, 0.7);
+//   }
+
+//   .reviews_container {
+//     width: 100%;
+
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//   }
+
+//   overflow: scroll;
+// }
+
+.modal {
+  position: absolute;
+  width: 948px;
+  height: 722px;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0.2);
+
+  .close_button {
+    position: relative;
+    left: 900px;
+    bottom: 200px;
+    margin-right: 10px;
+    font-size: 55px;
+    color: #999999;
+  }
+
+  .close_button:hover {
+    color: #111F35;
+    cursor: pointer;
+  }
+
+  .text_description {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: auto;
+    height: 200px;
+    border-radius: 9px;
+    margin: 20px;
+  }
+
+  .post_information {
+    display: flex;
+    margin-bottom: -50px;
+  }
+
+  h2 {
+    color: #468dc5;
+  }
+
+  hr {
+    width: 878px;
+    border-radius: 0.5px;
+    color: #d4d4d4;
+    opacity: 0.3;
+  }
+
+  hr+p {
+    margin-left: 38px;
+
+    span {
+      margin-left: 10px;
+      color: #636363;
+      font-size: 12px;
+    }
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .reviews_container {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  overflow: scroll;
+}

@@ -1,0 +1,17 @@
+.dish-container{
+  display:inline-flex;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-y: auto;
+  transition: .5s;
+  width:100%;
+}
+
+@media screen and (max-width:1200px){
+  .dish-container{
+    justify-content: center;
+  }
+}

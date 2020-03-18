@@ -1,0 +1,66 @@
+.tourist-card {
+  .popup-content {
+    width: 25% !important
+  }
+
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  // height: 70px;
+  width: 48%;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #c5c5c5;
+  background: #efefef;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.tourist-card p {
+  margin: 3px;
+  padding: 0;
+}
+
+.tourist-button {
+
+  display: flex;
+  align-items: center;
+}
+
+.tourist-button button {
+  background-color: #c5c5c5;
+  color: white;
+  border: 1px solid #a5a5a5;
+  height: 30px;
+  border-radius: 50px;
+  margin-right: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.tourist-card span {
+  width: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  height: 10px;
+
+}
+
+.popup-content {
+  border-radius: 5px;
+  width: 300px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70px;
+  border-radius: 5px;
+  padding: 25px;
+  background: white;
+  flex-wrap: wrap;
+
+}

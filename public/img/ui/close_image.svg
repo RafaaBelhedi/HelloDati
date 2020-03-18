@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <path fill="#D17819" fill-rule="evenodd" d="M8 0c4.418 0 8 3.582 8 8s-3.582 8-8 8-8-3.582-8-8 3.582-8 8-8z"/>
+    <text fill="#FFF" font-family="Montserrat" font-size="16.879" transform="translate(4.523 11.563) scale(.7877)">
+        x
+    </text>
+</svg>

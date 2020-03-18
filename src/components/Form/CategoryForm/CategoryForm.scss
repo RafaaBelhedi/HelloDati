@@ -1,0 +1,103 @@
+@import '../../../assets/var';
+
+.category-form{
+  position: absolute;
+  z-index: 10;
+  width: 500px;
+  right:0;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: #eeeeee;
+  border: 1px solid $hellodati-blue;
+  font-size: 1.2em;
+}
+
+.category-form .title-bar{
+  background-color: $hellodati-blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.category-form .form-elements{
+  margin: 20px;
+}
+
+.form-elements>p{
+  font-size: 0.8em;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.category-add{
+  background-color: #3f86be;
+  border-radius: 50px;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left:0;  
+  width: 100px;
+  height: 35px;
+  margin-top:10px;
+}
+
+.category-add span{
+  background-color: $restaurant-blue;
+  border-radius: 50%;
+  width:30px;
+  height: 30px;
+  text-align: center;
+  color:white;
+  margin-right: 10px;
+  // padding-top:2.8px;
+  box-sizing: border-box;
+  font-size: 1.3em;
+  margin-left:10px;
+  font-weight: 100;
+}
+.category-add p{
+  color: white;
+  font-weight: 100;
+}
+
+.category-form input{
+  width: 90%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+  display:flex;
+  border: 1px solid #bfbfbf;
+}
+
+.category-form .categories{
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.category-form .categories p{
+  padding: 15px;
+  background-color: $hellodati-blue;
+  color: white;
+  margin: 5px;
+  margin-left:0;
+  margin-right: 20px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.category-form .categories sup{
+  cursor: pointer;
+
+  position: absolute;
+  top:-10px;
+  text-align: center;
+  right:-10px;
+  background:$restaurant-blue;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}

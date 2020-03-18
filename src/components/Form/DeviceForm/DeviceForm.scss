@@ -1,0 +1,87 @@
+@import '../../../assets/var';
+/*
+edit device style
+.
+.
+.
+.
+.
+.
+.
+.
+.
+*/
+
+.device-form-edit {
+  width: 100%;
+  // height: 230px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+}
+
+.title-device-edit {
+  display: flex;
+}
+
+.title-device-edit img {
+  margin-top: -19px;
+  margin-right: 8px;
+}
+
+.title-device-edit span {
+  margin-top: -5px;
+}
+
+.device-form-edit .device-header {
+  width: 100%;
+  background-color: #00a8e0;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 20px;
+  color: white;
+}
+
+.device-form-edit>.device-input {
+
+  select,
+  input {
+
+    width: 100%;
+    height: 40px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 5px;
+
+  }
+}
+
+.device-form-edit .device-input div {
+  margin-left: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  flex-flow: column;
+  width: 450px;
+  align-items: flex-start;
+}
+
+.device-form-edit .device-input label {
+  margin-bottom: 10px;
+}
+
+.device-form-edit button {
+  // margin-bottom: 20px;
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #1a5889;
+  color: white;
+  width: 29%;
+  height: 50px;
+}

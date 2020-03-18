@@ -1,0 +1,18 @@
+@import "../../../assets/var.scss";
+
+.restaurants {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-y: auto;
+}
+
+.delete_popup {
+  height: 100px;
+  width: 150px;
+  background-color: black;
+  color: #ffffff;
+}
