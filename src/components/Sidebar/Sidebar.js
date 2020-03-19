@@ -20,26 +20,14 @@ class Sidebar extends Component {
       expandStat: false,
       sideaccess: [],
       postaccess: [{
-        user_id:'',
-        post_id:'',
-        authorized:''
+        user_id: '',
+        post_id: '',
+        authorized: ''
       }]
     }
     this.logOut = this.logOut.bind(this)
   }
 
-  // async componentDidMount() {
-  //   let post = await callApi("posts", {
-  //     hotel_id: this.props.user.hotel_id[0] || 44,
-  //     parent_id: null
-  //   })
-  //   let services = await callApi("posts", {
-  //     hotel_id: this.props.user.hotel_id[0] || 44,
-  //     parent_id: post.data[0].id
-  //   })
-  //   this.setState({ services: services.data })
-
-  // }
   async componentDidMount() {
     let post = await callApi("posts", {
       hotel_id: this.context.hotel_id,
@@ -67,8 +55,8 @@ class Sidebar extends Component {
   }
 
   render() {
-console.log(this.state.postaccess.map(x=>x.post_id),"postaccess")
-console.log(this.state.services.map(x=>x.id),"postaccess")
+    console.log(this.state.postaccess.map(x => x.post_id), "postaccess")
+    console.log(this.state.services.map(x => x.id), "postaccess")
 
 
     return (
@@ -132,7 +120,7 @@ console.log(this.state.services.map(x=>x.id),"postaccess")
 
 
           {this.context.role == 2 &&
-            ((this.state.sideaccess.guests == 1)|| (this.state.sideaccess.orders_reservations == 1)) &&
+            ((this.state.sideaccess.guests == 1) || (this.state.sideaccess.orders_reservations == 1)) &&
             <li className="sidebar-item" onClick={() => { this.setState({ expandReception: !this.state.expandReception }); this.setState({ expand: false }); this.setState({ expandLogistic: false }); this.setState({ expandStat: false }) }}>
               <ReactSVG
                 src="/img/sidebar/front.svg"
@@ -281,7 +269,7 @@ console.log(this.state.services.map(x=>x.id),"postaccess")
 
 
           {this.context.role == 2 &&
-            ((this.state.sideaccess.rooms == 1) ||  (this.state.sideaccess.devices == 1) || (this.state.sideaccess.employees == 1)) &&
+            ((this.state.sideaccess.rooms == 1) || (this.state.sideaccess.devices == 1) || (this.state.sideaccess.employees == 1)) &&
             <li className="sidebar-item" onClick={() => { this.setState({ expandLogistic: !this.state.expandLogistic }); this.setState({ expand: false }); this.setState({ expandReception: false }); this.setState({ expandStat: false }) }}>
               <ReactSVG
                 src="/img/sidebar/logistic.svg"
@@ -332,20 +320,20 @@ console.log(this.state.services.map(x=>x.id),"postaccess")
 
           }
 
-{this.context.role == 3 &&
+          {this.context.role == 3 &&
 
-<li className="sidebar-item">
-  <ReactSVG
-    src="/img/sidebar/hand.svg"
-    className="svg-icon"
-  />
-  <NavLink activeClassName="active-link" to="/demandes">
-    <p className='notification_style'>DEMANDES
+            <li className="sidebar-item">
+              <ReactSVG
+                src="/img/sidebar/hand.svg"
+                className="svg-icon"
+              />
+              <NavLink activeClassName="active-link" to="/demandes">
+                <p className='notification_style'>DEMANDES
   </p>
-  </NavLink>
-</li>
+              </NavLink>
+            </li>
 
-}
+          }
 
           {this.context.role == 2 &&
             this.state.sideaccess.notifications == 1 &&
