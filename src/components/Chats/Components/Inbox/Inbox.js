@@ -27,12 +27,12 @@ class Inbox extends Component {
   SetSeen = () => {
 
     var db = firebase.database();
-    var query = db.ref("Chats").orderByChild("testSeen").equalTo(this.props.chat.sender+"/"+this.props.chat.receiver+"/"+ this.context.hotel_id[0]);
+    var query = db.ref("Chats").orderByChild("testSeen").equalTo(this.props.chat.sender + "/" + this.props.chat.receiver + "/" + this.context.hotel_id[0]);
     query.on("child_added", function (snapshot) {
       snapshot.ref.update({ isseen: "true" })
     });
   }
-  changeColor =(id) => {
+  changeColor = (id) => {
     this.setState({ selected: id });
   };
 
@@ -45,18 +45,18 @@ class Inbox extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.inBox.inBox !== prevProps.inBox.inBox) {
       this.changeColor(this.props.inBox.inBox)
-      console.log(this.props.inBox.inBox,"props changed")
+      console.log(this.props.inBox.inBox, "props changed")
     }
   }
   render() {
 
 
     console.log(this.props.context.message.sender, "contextreceiver")
-    console.log( this.props.chat.sender, "sender")
-    console.log( this.state.touristRoom, "tttttgttthh")
+    console.log(this.props.chat.sender, "sender")
+    console.log(this.state.touristRoom, "tttttgttthh")
 
     console.log(this.context.hotel_id[0], "iddd")
-    console.log(this.props.chat.sender+"/"+this.props.chat.receiver+"/"+ this.context.hotel_id[0], "testseen")
+    console.log(this.props.chat.sender + "/" + this.props.chat.receiver + "/" + this.context.hotel_id[0], "testseen")
 
 
     console.log(this.props.chat.sender, "sendertourists")
@@ -75,7 +75,7 @@ class Inbox extends Component {
 
     console.log(this.props.inBox.inBox, "inbox3")
     return (
-      <div className="InboxContainer" style={{  backgroundColor: this.state.selected == this.props.chat.sender ? "#21324c" : ""}} onClick={() => { this.props.setInBox({ inBox: this.props.chat.sender }).then(() => { this.SetSeen() });this.props.context.setData(	{sender:"0",message:"",time:"",receiver:"",hotel_id:"",isseen:""} );this.changeColor(this.props.inBox.inBox);}}  >
+      <div className="InboxContainer" style={{ backgroundColor: this.state.selected == this.props.chat.sender ? "#21324c" : "" }} onClick={() => { this.props.setInBox({ inBox: this.props.chat.sender }).then(() => { this.SetSeen() }); this.props.context.setData({ sender: "0", message: "", time: "", receiver: "", hotel_id: "", isseen: "" }); this.changeColor(this.props.inBox.inBox); }}  >
 
 
         <div className="ImageMsg">
@@ -85,32 +85,32 @@ class Inbox extends Component {
         <div className="TextMsg">
           <div className="name_and_message">
             <div className="my_sender_name">
-          {this.props.tourists.map(name => {
-            return name.id == this.props.chat.sender ?
-              <p className="nameContact"> {name.nom}</p>
-              : ""
-          })}
+              {this.props.tourists.map(name => {
+                return name.id == this.props.chat.sender ?
+                  <p className="nameContact"> {name.nom}</p>
+                  : ""
+              })}
+            </div>
+            <div className="my_message_receive">
+              {this.props.chat.message}
+            </div>
           </div>
-          <div className="my_message_receive">
-        {this.props.chat.message}
-        </div>
-          </div>
-       
+
           <div className="room_and_number">
             <div className="my_room">
-          <p>Room Number </p>
+              <p>Room Number </p>
             </div>
             <div className="my_room_number">
-            {this.state.touristRoom.map(name => {
-            return name.id == this.props.chat.sender ?
-              <p className="roomNumber"> {name.stay.device_room.room.room_number}</p>
-              : ""
-          })}
+              {this.state.touristRoom.map(name => {
+                return name.id == this.props.chat.sender ?
+                  <p className="roomNumber"> {name.stay.device_room.room.room_number}</p>
+                  : ""
+              })}
             </div>
 
           </div>
 
-        
+
         </div>
 
         {/* <div className="TimeMsg"> */}
