@@ -17,7 +17,7 @@ class Inbox extends Component {
       inBox: { ...this.props.inBox },
       count: '',
       selected: "",
-      touristRoom:[]
+      touristRoom: []
     }
     this.SetSeen = this.SetSeen.bind(this)
   }
