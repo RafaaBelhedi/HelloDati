@@ -36,7 +36,7 @@ class Switch extends Component {
       if (restaurants.length > 0) {
         await this.setState({ postHiddenId: restaurants.data[0].state });
         await this.setState({ HiddenId: restaurants.data[0].id });
-      }
+       }
 
     } else {
       let post = await callApi("posts", {
