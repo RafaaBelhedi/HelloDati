@@ -37,31 +37,18 @@ class Header extends Component {
     await this.setState({ services: services.data[0] })
     await this.setState({ hotel: hotel.data[0] })
     await this.setState({ post: post.data[0] })
-    // await this.componentsHandler(this.props.location.pathname);
+    
   }
 
-  // async componentsHandler(title) {
-  //   if (title == '/') {
-  //     await this.setState({ backgroundImage: `url(${this.state.post.image})` })
-  //     document.getElementById("root").style.gridTemplateRows = ` minmax(150px,6fr) 11fr`
+ 
 
-  //   } else {
-  //     this.setState({ backgroundImage: `url(http://apitndati.com/v003/public/uploads/tourist_images/rvpdtaycwU63BNEdIO40GtT2uMtryihSJTPGbaCu.png )` })
-  //     document.getElementById("root").style.gridTemplateRows = `minmax(150px,3fr) 11fr`
 
-  //   }
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.location.pathname !== prevProps.location.pathname) {
-  //     this.componentsHandler(this.props.location.pathname)
-  //   }
-  // }
   render() {
 
 
     return (
-      <header style={{ backgroundImage: this.state.backgroundImage }}>
+      // <header style={{ backgroundImage: this.state.backgroundImage }}>
+      <header style={{ backgroundColor:" #111f35 "}}>
         <TopBar changeUser={this.props.changeUser} post={this.state.post} hotel={this.state.hotel} />
         <BotBar hotel={this.state.hotel} post={this.state.post} services={this.state.services} />
       </header>

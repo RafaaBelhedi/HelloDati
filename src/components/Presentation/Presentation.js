@@ -17,9 +17,9 @@ class Presentation extends Component {
   }
 
   async componentDidMount() {
-    let devices = await callApi('devices')
+    let devices = await callApi('devices', { hotel_id: this.context.hotel_id[0] })
     this.setState({ devices: devices.data })
-    let orders = await callApi('shopping_orders');
+    let orders = await callApi('shopping_orders', { hotel_id: this.context.hotel_id[0] });
     this.setState({ orders: orders.data });
 
 
@@ -35,6 +35,8 @@ class Presentation extends Component {
   render() {
     const orders = this.state.orders.filter(x => (x.reservation == 0) && (x.status != 0))
     const reservations = this.state.orders.filter(x => x.reservation == 1 && x.status != 0)
+    let filterOrders= orders.filter(x => x.status == 5||x.status == 2||x.status == 3);
+     console.log(filterOrders,"tayyy")
     return <div className="presentation-container">
       <div className="mobiles">
         <div className="mobile">
@@ -88,7 +90,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [orders.filter(x => x.status == 1).length, orders.length],
+                  data: [orders.filter(x => x.status == 1).length, orders.filter(x => x.status == 2||x.status == 3||x.status == 5).length],
                   backgroundColor: [
                     '#FDCDA3',
                     '#111F35',
@@ -108,7 +110,7 @@ class Presentation extends Component {
             /></div>
             <p style={{ color: "#FDCDA3" }}>Waiting</p>
           </div>
-          <div className="stat">
+          {/* <div className="stat">
             <p className="percentage">{Math.round(orders.filter(x => x.status == 2).length / orders.length * 100) || 0}%</p>
             <div><Doughnut
               height="100"
@@ -120,7 +122,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [orders.filter(x => x.status == 2).length, orders.length],
+                  data: [orders.filter(x => x.status == 2).length, orders.filter(x => x.status == 1||x.status == 3||x.status == 5).length],
                   backgroundColor: [
                     '#879CBF',
                     '#111F35',
@@ -139,9 +141,9 @@ class Presentation extends Component {
               }
             /></div>
             <p style={{ color: "#879CBF" }}>Accepted</p>
-          </div>
+          </div> */}
           <div className="stat">
-            <p className="percentage">{Math.round(orders.filter(x => x.status == 4).length / orders.length * 100) || 0}%</p>
+            <p className="percentage">{Math.round(orders.filter(x => x.status ==5).length / orders.length * 100) || 0}%</p>
             <div><Doughnut
               height="100"
               width="110"
@@ -152,7 +154,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [orders.filter(x => x.status == 4).length, orders.length],
+                  data: [orders.filter(x => x.status == 5).length, orders.filter(x => x.status == 1||x.status == 2||x.status == 3).length],
                   backgroundColor: [
                     '#86C7CC',
                     '#111F35',
@@ -184,7 +186,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [orders.filter(x => x.status == 3).length, orders.length],
+                  data: [orders.filter(x => x.status == 3).length, orders.filter(x => x.status == 1||x.status == 2||x.status == 5).length],
                   backgroundColor: [
                     '#CF6E6E',
                     '#111F35',
@@ -222,7 +224,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [reservations.filter(x => x.status == 1).length, reservations.length],
+                  data: [reservations.filter(x => x.status == 1).length, reservations.filter(x => x.status == 2||x.status == 3||x.status == 5).length],
                   backgroundColor: [
                     '#FDCDA3',
                     '#111F35',
@@ -242,7 +244,7 @@ class Presentation extends Component {
             /></div>
             <p style={{ color: "#FDCDA3" }}>Waiting</p>
           </div>
-          <div className="stat">
+          {/* <div className="stat">
             <p className="percentage">{Math.round(reservations.filter(x => x.status == 2).length / reservations.length * 100) | 0}%</p>
             <div><Doughnut
               height="100"
@@ -254,7 +256,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [reservations.filter(x => x.status == 2).length, reservations.length],
+                  data: [reservations.filter(x => x.status == 2).length, reservations.filter(x => x.status == 1||x.status == 3||x.status == 5).length],
                   backgroundColor: [
                     '#879CBF',
                     '#111F35',
@@ -273,9 +275,9 @@ class Presentation extends Component {
               }
             /></div>
             <p style={{ color: "#879CBF" }}>Accepted</p>
-          </div>
+          </div> */}
           <div className="stat">
-            <p className="percentage">{Math.round(reservations.filter(x => x.status == 4).length / reservations.length * 100) | 0}%</p>
+            <p className="percentage">{Math.round(reservations.filter(x => x.status == 5).length / reservations.length * 100) | 0}%</p>
             <div><Doughnut
               height="100"
               width="110"
@@ -286,7 +288,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [reservations.filter(x => x.status == 4).length, reservations.length],
+                  data: [reservations.filter(x => x.status == 5).length, reservations.filter(x => x.status == 1||x.status == 2||x.status == 3).length],
                   backgroundColor: [
                     '#86C7CC',
                     '#111F35',
@@ -318,7 +320,7 @@ class Presentation extends Component {
                   'Total',
                 ],
                 datasets: [{
-                  data: [reservations.filter(x => x.status == 3).length, reservations.length],
+                  data: [reservations.filter(x => x.status == 3).length, reservations.filter(x => x.status == 1||x.status == 2||x.status == 5).length],
                   backgroundColor: [
                     '#CF6E6E',
                     '#111F35',

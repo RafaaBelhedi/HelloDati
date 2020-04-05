@@ -68,12 +68,12 @@ class ServiceCard extends Component {
           || this.props.service.layout_xml_template == 4 && '/img/services/Gallerie.png' || this.props.service.layout_xml_template == 5 && '/img/services/reunion.png'
           || this.props.service.layout_xml_template == 6 && '/img/services/Contact.png' || this.props.service.layout_xml_template == 7 && '/img/services/evenement.png'
           || this.props.service.layout_xml_template == 8 && '/img/services/bien_etre.png' || this.props.service.layout_xml_template == 9 && '/img/services/weather.png'
-          || this.props.service.layout_xml_template == 10 && '/img/services/prayer.png' || this.props.service.layout_xml_template == 11 && '/img/services/conceirge.png'})`
+          || this.props.service.layout_xml_template == 10 && '/img/services/prayer.png' || this.props.service.layout_xml_template == 11 && '/img/services/conceirges.png'})`
       }}
         class="service-card">
 
         <div onClick={() => { this.setState({ redirect: true }) }} style={{ height: "90%", width: " 90%", display: "flex", alignItems: "flex-end" }} className="service-name">
-          <p style={{ color: '#' + this.props.service.title_color }} >{this.props.service.title}</p>
+          <p style={{ color:this.props.service.layout_xml_template == 1 ? "#74904b": '#' + this.props.service.title_color }} >{this.props.service.title}</p>
         </div>
         <div className="service-Edit" >
           <div className="service-info">

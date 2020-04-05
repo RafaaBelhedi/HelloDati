@@ -16,10 +16,12 @@ class DeviceForm extends Component {
       rooms: [],
       tourists: [],
       alert_message: [],
-      visible: false,
+      visible: '',
       shown:"",
       hotels:[],
       imeiFix:"",
+      disabled : false,
+      devices:[],
    
     }
     this.edit = this.edit.bind(this)
@@ -38,6 +40,9 @@ class DeviceForm extends Component {
     this.setState({ tourists: tourists.data });
     let hotels = await callApi("hotels")
     this.setState({ hotels: hotels.data })
+    await callApi('devices', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+			this.setState({ devices: res.data});
+		})
   }
   closeModal() {
     this.setState({
@@ -47,6 +52,7 @@ class DeviceForm extends Component {
 
   async edit() {
     await this.setState({ alert_message: [] })
+    this.setState({disabled: true});
 
    if( document.forms["formEditDevice"]["imei"].value ){
     if (!/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]{15}$/.test(this.state.device.imei)) {
@@ -77,12 +83,12 @@ class DeviceForm extends Component {
           await this.setState({ alert_message: [...this.state.alert_message, "messing number !"] })
         }
         
-      if (document.forms["formEditDevice"]["hotel_id"].value === ""){
+      if (document.forms["formEditDevice"]["hotel_id"].value == ""){
             await this.setState({ alert_message: [...this.state.alert_message, "messing Hotel !"] })
           }
 
-        await callApi('devices', { hotel_id: this.context.hotel_id[0] }).then(res=>{
-      let otherDevices = res.data.reduce((otherDevices, item) => {
+      
+      let otherDevices = this.state.devices.reduce((otherDevices, item) => {
        if (item.id !== this.state.device.id) {
         otherDevices.push(item);
        }
@@ -95,22 +101,24 @@ class DeviceForm extends Component {
           otherDevices.map(device=>{
             return  this.state.device.imei == device.imei &&  this.setState({ alert_message: [...this.state.alert_message, "imei already registered !"] })
              })
-         })
+       
 
-        if (this.state.alert_message.length == 0){
+        if (this.state.alert_message.length == 0)
         await callApi('device/' + this.state.device.id, {imei: this.state.device.imei ,  call_time: this.state.device.call_time , call_limit: this.state.device.call_limit,intra_flotte: this.state.device.intra_flotte, hotel_id: this.state.device.hotel_id,number: this.state.device.number }, 'PUT')
         .then(res=>{
-          console.log(res,"lalalal device")
             this.setState({visible: "succes"})
-			// setTimeout(() => document.location.href = "/devices", 1000);
         }).catch(error=>{
           this.setState({visible: "echec"})
         })
-        } else if (this.state.alert_message.length !== 0) {
-          await  this.setState({visible: "echec"});
+        
+        if (this.state.alert_message.length == 0) {
+          this.setState({ visible: "succes" })
+          this.setState({ disabled: true}) 
+          setTimeout(() => document.location.href = "/devices", 1000);
+        } else {
+          this.setState({ visible: "echec" })
+          this.setState({ disabled: false}) 
         }
-
-        console.log(this.state.device.hotel_id,"hoteeeeelid")
       }
 
 
@@ -129,8 +137,6 @@ let call_limit_minute
 if(this.state.device.call_limit !== undefined && this.state.device.call_limit/60 !==0 ){
  call_limit_minute = this.state.device.call_limit/60 
 }  
-console.log(call_limit_minute ,"this.state.device.call_time")
-
 
     return <div className='device-form-edit'>
       <div className="device-header">
@@ -142,7 +148,7 @@ console.log(call_limit_minute ,"this.state.device.call_time")
         <div className="message-erreur" >
           {this.state.alert_message.map(x => <p>{x}</p>)}
         </div>
-        {this.state.visible === "succes" &&
+        {this.state.visible == "succes" &&
           <Modal
             className="my-modal"
             visible={this.state.visible}
@@ -158,7 +164,7 @@ console.log(call_limit_minute ,"this.state.device.call_time")
             </div>
           </Modal>
          }
-        {this.state.visible === "echec" &&
+        {this.state.visible == "echec" &&
           <Modal
             className="my-modal"
             visible={this.state.visible}
@@ -218,14 +224,6 @@ console.log(call_limit_minute ,"this.state.device.call_time")
               <option value="1">Yes</option>
             </select>
           </div>
-          {/* <div>
-            <label htmlFor="status">Status:</label>
-            <select name="status" onChange={(e) => this.setData({ status: e.target.value })}>
-              <option selected hidden>{this.state.device.status === 1 ? 'Active' : 'Inactive'}</option>
-              <option value="1">Active</option>
-              <option value="0">Inactive</option>
-            </select>
-          </div> */}
           <div>
           <label htmlFor="hotel">Hotels:</label>
           <select name="hotel_id" onChange={(e) => { this.setData({ hotel_id: e.target.value }); console.log('hotel value', e.target.value) }}>
@@ -241,10 +239,7 @@ console.log(call_limit_minute ,"this.state.device.call_time")
         </> : null}
         </div>
 
-        <button onClick={this.edit}>
-          <img src="/img/ui/valid.png" />
-          Confirm
-      </button>
+     {this.state.disabled == false ?<button onClick={this.edit}><img src="/img/ui/valid.png" /> Confirm</button>:<button className="sendingData"> Updating...</button>}
     </div>;
   }
 }

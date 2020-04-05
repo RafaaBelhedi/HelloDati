@@ -46,6 +46,7 @@ class Services extends Component {
     await this.setState({ services: services.data });
     let postaccess = await callApi('postaccess/' + this.context.user_id);
     await this.setState({ postaccess: postaccess.data });
+    console.log(this.context.hotel_id[0],"this.context.hotel_id[0]")
   }
   render() {
     return (

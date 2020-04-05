@@ -18,6 +18,7 @@ class RoomForm extends Component {
       availableDisplay: 'none',
       unAvailableDisplay: 'none',
       disabled : false,
+      rooms:[],
     }
     this.edit = this.edit.bind(this)
     this.setData = this.setData.bind(this)
@@ -32,14 +33,14 @@ class RoomForm extends Component {
     this.setState({ availableDevices: availableDevices.data });
     let unAvailableDevices = await callApi('devices/unavailable', { hotel_id: this.context.hotel_id });
     this.setState({ unAvailableDevices: unAvailableDevices.data });
-    // console.log(room,"roomroomroom")
-    // console.log(room.data[0].device_rooms.length,"roomroomroom")
-
+    await callApi('rooms', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+			this.setState({ rooms: res.data});
+		})
   }
   async edit(e) {
     e.preventDefault()
    await this.setState({ alert_message: [] })
-
+   this.setState({disabled: true});
     if (document.forms["formEditRoom"]["room_number"].value) {
 			if (! /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g.test(this.state.room.room_number)) {
 				this.setState({ alert_message: [...this.state.alert_message, "Invalid Room Number!"] })
@@ -77,28 +78,29 @@ class RoomForm extends Component {
     }
 
     
-   await callApi('rooms', { hotel_id: this.context.hotel_id[0] }).then(res => {
-			let otherRooms = res.data.reduce((otherRooms, item) => {
+  
+			let otherRooms =this.state.rooms.reduce((otherRooms, item) => {
 				if (item.id !== this.state.room.id) {
 					otherRooms.push(item);
 				}
 				return otherRooms;
-
       }, []);
    
-      this.setState({disabled: true});
+ 
 			otherRooms.map(room => {
 				return this.state.room.room_number == room.room_number && this.setState({ alert_message: [...this.state.alert_message, "Room already registered !"] })
-      })})
+      })
       
     if (this.state.alert_message.length == 0)
        await callApi('room/' + this.state.room.id, {room_number: this.state.room.room_number ,  section: this.state.room.section,floor: this.state.room.floor  ,capacity: this.state.room.capacity }, 'PUT')
        
         if (this.state.alert_message.length == 0) {
           this.setState({ visible: "success" })
-        //  setTimeout(() => document.location.href = "/rooms", 1000);
+          this.setState({disabled: true});
+        setTimeout(() => document.location.href = "/rooms", 1000);
         } else {
           this.setState({ visible: "echec" })
+          this.setState({disabled: false});
         }
 
     if (this.state.room.room_number) {
@@ -144,7 +146,7 @@ class RoomForm extends Component {
       >
         <div className="valide-modal">
           <img src="/img/ui/succes.png" style={{ width: "32", height: "32" }} />
-          <div>successfully added !</div>
+          <div>successfully Updated !</div>
           {/* <button onClick={() => this.closeModal()} >X</button> */}
         </div>
       </Modal>
@@ -235,10 +237,7 @@ class RoomForm extends Component {
             </div>
             </div>
 
-            <button onClick={this.edit} disabled={this.state.disabled}>
-              <img src="/img/ui/valid.png" />
-              Confirm
-              </button>
+            {this.state.disabled == false ? <button onClick={this.edit} ><img src="/img/ui/valid.png" />Confirm</button>:<button className="sendingData"> Updating...</button>}
       
               </form>
           </div> 

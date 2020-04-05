@@ -31,6 +31,7 @@ class AddTouristForm extends Component {
 	async componentDidMount() {
 		let rooms = await callApi('/device_rooms/available', { hotel_id: this.context.hotel_id[0] }, 'GET');
 		this.setState({ rooms: rooms.data });
+		console.log(rooms,"roomds")
 		await callApi('tourists', { hotel_id: this.context.hotel_id[0] }).then(res=>{
 			this.setState({ tourists: res.data});
 			console.log(this.state.tourists,"reddfsgffd")
@@ -44,7 +45,7 @@ class AddTouristForm extends Component {
 	async send(e) {
 		e.preventDefault()
 		await this.setState({ alert_message: [] })
-
+		this.setState({disabled: true});
 		if (document.forms["formAddGuest"]["first_name"].value) {
 			if (!/[a-zA-Z]{1,10}/.test(this.state.tourist.first_name)) {
 				this.setState({ alert_message: [...this.state.alert_message, "Invalid first name!"] })
@@ -140,9 +141,6 @@ class AddTouristForm extends Component {
 			this.state.tourists.map(tourist => {
 				return this.state.tourist.email == tourist.email && this.setState({ alert_message: [...this.state.alert_message, "Email already registered!"] })
 			})
-		
-console.log(this.state.room_id,"room_id")
-
 		this.calculeAge(this.state.tourist.born)
 		if (this.state.alert_message.length == 0) {
 			await callApi('tourist', this.state.tourist, 'POST')
@@ -160,11 +158,14 @@ console.log(this.state.room_id,"room_id")
 					this.cancelForm();
 					this.setState({ disabled: true})
 				}).catch(error => { this.setState({ visible: "echec" }) })
-		} else if (this.state.alert_message.length !== 0) {
+		} 
+		if (this.state.alert_message.length == 0) {
+			this.setState({ visible: "success" });
+			this.setState({ disabled: true});
+		} else {
+			this.setState({ visible: "echec" })
 			this.setState({ disabled: false})
-			this.setState({ visible: "echec" });
 		}
-
 	}
 	closeModal() {
 		this.setState({
@@ -198,7 +199,7 @@ console.log(this.state.room_id,"room_id")
 	}
 
 	render() {
-		console.log((new Date().getMonth()).length, "osedlflsd")
+		console.log(this.state.rooms, "osedlflsd")
 
 		return <div className='tourist-form-add'>
 
@@ -216,12 +217,12 @@ console.log(this.state.room_id,"room_id")
 					width="400"
 					height="300"
 					effect="fadeInUp"
-					onClickAway={() => this.closeModal()}
+					onClickAway={() => {this.closeModal();this.setState({ disabled: false})}}
 				>
 					<div className="valide-modal">
 						<img src="/img/ui/succes.png" style={{ width: "32", height: "32" }} />
 						<div>successfully added !</div>
-						<button onClick={() => this.closeModal()} >X</button>
+						 {/* <button onClick={() => this.closeModal()} >X</button> */}
 					</div>
 				</Modal>
 				: null}
@@ -237,7 +238,7 @@ console.log(this.state.room_id,"room_id")
 					<div className="echec-modal">
 						<img src="/img/ui/echec.png" style={{ width: "32", height: "32" }} />
 						<div>Reinsert information please !</div>
-						<button onClick={() => this.closeModal()} >X</button>
+						{/* <button onClick={() => this.closeModal()} >X</button> */}
 					</div>
 				</Modal>
 				: null}
@@ -265,7 +266,6 @@ console.log(this.state.room_id,"room_id")
 					<input type="number" required placeholder="Phone number" name="phone_number" onChange={(e) => this.setData({ phone_number: e.target.value })} maxlength="9" pattern=".{0,8}" />
 					<input type="text" required placeholder="CIN Number / Passport Number" name="cin_number" onChange={(e) => this.setData({ cin_number: e.target.value })} />
 					{/* <input type="number"  required  placeholder="Passport Number" name="passport_number" onChange={(e)=>this.setData({passport_number: e.target.value})}  /> */}
-
 					<select name="country" onChange={(e) => this.setData({ country: e.target.value })} >
 						<option selected disabled hidden>Country</option>
 						<option value="AF">Afghanistan</option>
@@ -524,16 +524,11 @@ console.log(this.state.room_id,"room_id")
 					<input type="text" onFocus={this.onFocus} onBlur={this.onBlurin} defaultValue={this.state.tourist.check_in} required placeholder="Check In" name="check_in" onChange={(e) => this.setData({ check_in: e.target.value })} />
 					<input type="text" onFocus={this.onFocus} onBlur={this.onBlurout} required placeholder="Check Out" name="check_out" onChange={(e) => this.setData({ check_out: e.target.value })} />
 					<select name="prefix_name" onChange={(e) => this.setData({ room_id: e.target.value })}>
-						<option selected disabled hidden>Affect Guest to room</option>
-						{this.state.rooms.filter(x => x.device.id !== null).map(x => (
-							<option value={x.room.id}>{x.room.room_number} {x.stay.tourist.id !== null ? '(Occupied)' : ''}</option>
-						))}
+				    	<option selected disabled hidden>Affect Guest to room</option>
+				    	{this.state.rooms.filter(x => x.device.id !== null).map(x => (<option value={x.room.id}>{x.room.room_number} {x.stay.tourist.id !== null ? '(Occupied)' : ''}</option>))}
 					</select>
-					{this.state.disabled == false ? 
-					<button onClick={this.send}>
-						<img src="/img/ui/valid.png" />
-						Confirm
-          </button>: <button className="sendingData" onClick={()=>{window.location.reload()}}> Add New Guest</button>}
+					{this.state.disabled == false ? <button onClick={this.send} ><img src="/img/ui/valid.png" />Confirm</button>:<button className="sendingData"> Sending...</button>}
+
 				</form>
 			</div>
 

@@ -85,7 +85,13 @@ class TopBar extends Component {
       this.setState({ hotels: hotels.data });
       this.setState({ hotels: [...this.state.hotels.filter(x => x.id == this.context.hotel_id[0]), ...this.state.hotels] });
     }
-    setInterval(() => { callApi('shopping_orders', { hotel_id: this.context.hotel_id[0] }).then((historyItems) => this.setState({ historyItems: historyItems.data.filter(x => x.status == 1).map(x => { return { ...x, show: false } }) })) }, 3000)
+    setInterval(() => {
+       callApi('shopping_orders', { hotel_id: this.context.hotel_id[0] })
+       .then((historyItems) => {
+      if(historyItems!==undefined){
+        this.setState({ historyItems: historyItems.data.filter(x => x.status == 1) })
+      }}) 
+    }, 3000)
 
     firebase.database()
       .ref("Chats")
@@ -116,7 +122,7 @@ class TopBar extends Component {
   }
 
   render() {
-
+console.log(this.state.historyItems,"historyItemsstate")
 
     const hotel = this.props.hotel;
     const post = this.props.post;
@@ -156,7 +162,7 @@ class TopBar extends Component {
           <img className="hotel-icon" src={post.cover} />
           <div className="hotel-desc">
             {this.context.role == 3 ? (
-              <select onInput={(e) => this.props.changeUser(this.context, e.target.value).then(() => window.location.reload())}>
+              <select onInput={(e) => this.props.changeUser(this.context, e.target.value).then(() => document.location.href = "/")}>
                 {this.state.hotels.map(hotel => <option value={hotel.id}>{hotel.hotel_name}</option>)}
               </select>
             ) : <p>{hotel.hotel_name}</p>}

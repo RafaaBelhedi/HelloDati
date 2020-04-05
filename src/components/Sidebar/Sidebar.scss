@@ -230,10 +230,13 @@ ul.dashboard-sidebar>li.sidebar-item>p {
   margin-top: 20px;
   align-items: center;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-
+  cursor: help;
+img{
+  cursor: help;
+}
   p {
     color: #ffe80a !important;
     margin-left: 5px;
+    cursor: help !important;
   }
 }
