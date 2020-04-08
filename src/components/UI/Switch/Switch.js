@@ -50,8 +50,6 @@ class Switch extends Component {
       await this.setState({ postHiddenId: services.data[0].state });
       await this.setState({ HiddenId: services.data[0].id });
     }
-
-
   }
   render() {
     return (

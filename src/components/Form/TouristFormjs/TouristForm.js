@@ -154,7 +154,7 @@ class TouristForm extends Component {
 
 		if (this.state.alert_message.length == 0) {
 			this.setState({ visible: "success" })
-			// setTimeout(() => document.location.href = "/guest", 1000);
+			setTimeout(() => document.location.href = "/guest", 1000);
 		} else {
 			this.setState({ visible: "echec" })
 		}
@@ -176,8 +176,6 @@ class TouristForm extends Component {
 		e.currentTarget.placeholder = "Born Date";
 	}
 	render() {
-		console.log(this.state.tourist, "toujjjfjdksfjqjes")
-
 		return <div className='tourist-form-add'>
 
 			<div className="tourist-header">
@@ -198,8 +196,7 @@ class TouristForm extends Component {
 				>
 					<div className="valide-modal">
 						<img src="/img/ui/succes.png" style={{ width: "32", height: "32" }} />
-						<div>successfully Updated !</div>
-						{/* <button  onClick={() => this.closeModal()} >X</button> */}
+						<div>Successfully Updated !</div>
 					</div>
 				</Modal>
 				: null}

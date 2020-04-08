@@ -23,8 +23,8 @@ class BotBar extends Component {
       services: [],
       service: [],
       open: true,
-      goBack:"/img/ui/goBackInactive.png",
-      nextPage:"/img/ui/nextPageInactive.png"
+      goBack: "/img/ui/goBackInactive.png",
+      nextPage: "/img/ui/nextPageInactive.png"
     }
     this.imageRef = React.createRef()
     this.componentsHandler = this.componentsHandler.bind(this)
@@ -41,9 +41,9 @@ class BotBar extends Component {
       case '/devices':
         this.setState({ titleMenu: 'DEVICES' })
         break
-      case '/devices':
-        this.setState({ titleMenu: 'DEVICES' })
-        break
+      // case '/devices':
+      //   this.setState({ titleMenu: 'DEVICES' })
+      //   break
       case '/guest':
         this.setState({ titleMenu: 'GUESTS' })
         break
@@ -71,12 +71,12 @@ class BotBar extends Component {
       case '/orders':
         this.setState({ titleMenu: 'ORDERS RESERVATIONS' })
         break
-      case '/orders':
-        this.setState({ titleMenu: 'ORDERS RESERVATIONS' })
+      // case '/orders':
+      //   this.setState({ titleMenu: 'ORDERS RESERVATIONS' })
+      //   break
+      case '/demandes':
+        this.setState({ titleMenu: 'DEMANDES' })
         break
-        case '/demandes':
-          this.setState({ titleMenu: 'DEMANDES' })
-          break
       default:
     }
   }
@@ -112,7 +112,6 @@ class BotBar extends Component {
     }
   }
   render() {
-console.log( this.props.location.pathname,"path")
     let input = this.props.location.pathname;
     let fields = input.split('/');
     let service = fields[1];
@@ -122,11 +121,11 @@ console.log( this.props.location.pathname,"path")
     let stars = []
 
     return (<div className="botbar">
-      {this.props.location.pathname !== "/" && 
-      <div className="button_navigation">
-        <img src={this.state.goBack} style={{ width: "32px", height: "32px" }} onClick={()=>{this.props.history.goBack();this.setState({goBack:"/img/ui/goBack.png",nextPage:"/img/ui/nextPageInactive.png"})}} />
-        <img src={this.state.nextPage} style={{ width: "32px", height: "32px" }} onClick={()=>{this.goForward();this.setState({nextPage:"/img/ui/nextPage.png",goBack:"/img/ui/goBackInactive.png"})}} />
-      </div>
+      {this.props.location.pathname !== "/" &&
+        <div className="button_navigation">
+          <img src={this.state.goBack} style={{ width: "32px", height: "32px" }} onClick={() => { this.props.history.goBack(); this.setState({ goBack: "/img/ui/goBack.png", nextPage: "/img/ui/nextPageInactive.png" }) }} />
+          <img src={this.state.nextPage} style={{ width: "32px", height: "32px" }} onClick={() => { this.goForward(); this.setState({ nextPage: "/img/ui/nextPage.png", goBack: "/img/ui/goBackInactive.png" }) }} />
+        </div>
       }
       <div>
         <p className="titleMenu">

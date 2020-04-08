@@ -55,10 +55,6 @@ class Sidebar extends Component {
   }
 
   render() {
-    console.log(this.state.postaccess.map(x => x.post_id), "postaccess")
-    console.log(this.state.services.map(x => x.id), "postaccess")
-
-
     return (
       <nav>
         <div className="img-container">

@@ -21,9 +21,6 @@ class Inbox extends Component {
     }
     this.SetSeen = this.SetSeen.bind(this)
   }
-
-
-
   SetSeen = () => {
 
     var db = firebase.database();
@@ -45,35 +42,10 @@ class Inbox extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.inBox.inBox !== prevProps.inBox.inBox) {
       this.changeColor(this.props.inBox.inBox)
-      console.log(this.props.inBox.inBox, "props changed")
     }
   }
   render() {
-
-
-    console.log(this.props.context.message.sender, "contextreceiver")
-    console.log(this.props.chat.sender, "sender")
-    console.log(this.state.touristRoom, "tttttgttthh")
-
-    console.log(this.context.hotel_id[0], "iddd")
-    console.log(this.props.chat.sender + "/" + this.props.chat.receiver + "/" + this.context.hotel_id[0], "testseen")
-
-
-    console.log(this.props.chat.sender, "sendertourists")
-    console.log(this.props.inBox.inBox, "this.props.chat.sender")
-
-
-    console.log(this.props.chats, "chats f coontact")
-    console.log(this.props.chats.filter(user => (user.sender == this.props.chat.sender)), "chats filtrer coontact")
     var allMsgSender = this.props.chats.filter(user => (user.sender == this.props.chat.sender))
-    console.log(allMsgSender, "allMsgSender")
-    console.log(allMsgSender.filter(x => x.isseen == "false"), "msg not seen")
-
-
-
-
-
-    console.log(this.props.inBox.inBox, "inbox3")
     return (
       <div className="InboxContainer" style={{ backgroundColor: this.state.selected == this.props.chat.sender ? "#21324c" : "" }} onClick={() => { this.props.setInBox({ inBox: this.props.chat.sender }).then(() => { this.SetSeen() }); this.props.context.setData({ sender: "0", message: "", time: "", receiver: "", hotel_id: "", isseen: "" }); this.changeColor(this.props.inBox.inBox); }}  >
 
@@ -112,16 +84,6 @@ class Inbox extends Component {
 
 
         </div>
-
-        {/* <div className="TimeMsg"> */}
-        {/* <p>{this.props.chat.time}</p> */}
-        {/* <ReactSVG
-              src="/img/chat/notSeen.svg"
-              className="svgIconSeensend"
-            />
- </div>
-       */}
-
 
         <div className="msg_not_seen">
 

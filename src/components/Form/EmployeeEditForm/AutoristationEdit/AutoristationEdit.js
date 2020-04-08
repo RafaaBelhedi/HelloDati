@@ -34,10 +34,6 @@ class AutoristationEdit extends Component {
     await this.setState({ sidebar_access: { ...this.state.sidebar_access, ...newAccesses } });
   }
   async handlePostAccess(index, value) {
-    // await this.setState({ post_access: { ...this.state.post_access[index].authorized, ...JSON.stringify(value) } });
-    // this.setState({
-    //   post_access: update(this.state.post_access, { index: { authorized: value } })
-    // })
     this.state.post_access[index].authorized = value;
     this.forceUpdate();
   }
