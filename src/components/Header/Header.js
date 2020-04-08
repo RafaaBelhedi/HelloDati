@@ -37,10 +37,10 @@ class Header extends Component {
     await this.setState({ services: services.data[0] })
     await this.setState({ hotel: hotel.data[0] })
     await this.setState({ post: post.data[0] })
-    
+
   }
 
- 
+
 
 
   render() {
@@ -48,7 +48,7 @@ class Header extends Component {
 
     return (
       // <header style={{ backgroundImage: this.state.backgroundImage }}>
-      <header style={{ backgroundColor:" #111f35 "}}>
+      <header style={{ backgroundColor: " #111f35 " }}>
         <TopBar changeUser={this.props.changeUser} post={this.state.post} hotel={this.state.hotel} />
         <BotBar hotel={this.state.hotel} post={this.state.post} services={this.state.services} />
       </header>

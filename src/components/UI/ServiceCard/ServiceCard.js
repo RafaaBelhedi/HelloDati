@@ -73,7 +73,7 @@ class ServiceCard extends Component {
         class="service-card">
 
         <div onClick={() => { this.setState({ redirect: true }) }} style={{ height: "90%", width: " 90%", display: "flex", alignItems: "flex-end" }} className="service-name">
-          <p style={{ color:this.props.service.layout_xml_template == 1 ? "#74904b": '#' + this.props.service.title_color }} >{this.props.service.title}</p>
+          <p style={{ color: this.props.service.layout_xml_template == 1 ? "#74904b" : '#' + this.props.service.title_color }} >{this.props.service.title}</p>
         </div>
         <div className="service-Edit" >
           <div className="service-info">
