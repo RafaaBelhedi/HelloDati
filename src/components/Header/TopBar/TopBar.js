@@ -88,7 +88,7 @@ class TopBar extends Component {
     setInterval(() => {
        callApi('shopping_orders', { hotel_id: this.context.hotel_id[0] })
        .then((historyItems) => {
-      if(historyItems!==undefined){
+      if(historyItems.data!==undefined){
         this.setState({ historyItems: historyItems.data.filter(x => x.status == 1) })
       }}) 
     }, 3000)

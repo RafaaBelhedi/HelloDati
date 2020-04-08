@@ -64,6 +64,12 @@ nav li {
 ul.dashboard-sidebar {
   grid-area: services;
 }
+@media(max-width:1470px){
+  ul.dashboard-sidebar {
+    grid-area: services;
+    padding-left: 10px;
+  }
+}
 
 ul.dashboard-sidebar p {
   color: #7b96c4;
