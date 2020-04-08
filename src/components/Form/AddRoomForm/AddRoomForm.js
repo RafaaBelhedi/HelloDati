@@ -33,6 +33,9 @@ class AddRoomForm extends Component {
 		this.setState({ availableDevices: availableDevices.data });
 		let unAvailableDevices = await callApi('devices/unavailable', { hotel_id: this.context.hotel_id });
 		this.setState({ unAvailableDevices: unAvailableDevices.data });
+		await callApi('rooms', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+			this.setState({ rooms: res.data});
+		})
 	}
 	closeModal() {
 		this.setState({
@@ -90,17 +93,15 @@ class AddRoomForm extends Component {
 			await this.setState({ alert_message: [...this.state.alert_message, "Linked room to device please !"] })
 		}
 
-		let rooms = await callApi('rooms', { hotel_id: this.context.hotel_id[0] })
-		for (var i = 0; i < rooms.data.length; i++) {
-			if (this.state.room.room_number == rooms.data[i].room_number) {
-				this.setState({ alert_message: [...this.state.alert_message, "Room already exist!"] });
-			}
-		}
+		this.state.rooms.map(rooms => {
+			
+			return this.state.room.room_number  == rooms.room_number && this.setState({ alert_message: [...this.state.alert_message, "Room already exist!"] })
+		})
 		if (this.state.alert_message.length == 0) {
 
 			await callApi('room', this.state.room, 'POST').then(res => {
 				this.setState({ visible: "success" });
-			
+				this.setState({ disabled: true});
 				if (this.state.room.room_number) {
 
 					this.setState({ room_id: res.data[0].id, hotel_id: res.data[0].hotel_id });
@@ -120,9 +121,9 @@ class AddRoomForm extends Component {
 			}).catch(error => { this.setState({ visible: "echec" }) });
 		}
 		if (this.state.alert_message.length == 0) {
-			this.setState({ visible: "success" })
-			this.setState({ disabled: true})
-			// setTimeout(() => document.location.href = "/rooms", 1000);
+			this.setState({ visible: "success" });
+			this.setState({ disabled: true});
+			setTimeout(() => document.location.href = "/rooms", 1000);
 		} else {
 			this.setState({ visible: "echec" })
 			this.setState({ disabled: false})
@@ -187,11 +188,7 @@ class AddRoomForm extends Component {
 							</div>
 						</div>
 						</div>
-						{this.state.disabled == false ? 
-						<button onClick={this.submit}  disabled={this.state.disabled }>
-							<img src="/img/ui/valid.png" />
-							Add
-          </button> : <button className="sendingData"> Sending...</button>}
+						{this.state.disabled == false ? <button onClick={this.submit} ><img src="/img/ui/valid.png" />Add</button> : <button className="sendingData"> Sending...</button>}
 						{this.state.visible == "success" ?
 							<Modal
 								className="my-modal"
@@ -199,7 +196,7 @@ class AddRoomForm extends Component {
 								width="400"
 								height="300"
 								effect="fadeInUp"
-								onClickAway={() => this.closeModal()}
+								onClickAway={() => {this.closeModal();this.setState({ disabled: false})}}
 							>
 								<div className="valide-modal">
 									<img src="/img/ui/succes.png" style={{ width: "32", height: "32" }} />

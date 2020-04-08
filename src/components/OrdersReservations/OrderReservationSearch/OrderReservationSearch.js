@@ -104,8 +104,8 @@ class OrderReservationSearch extends Component {
     console.log(sessionStorage.getItem('idNotif'), "tttty")
 
 
-    return <div className="history-search">
-
+    return <div className="order-search">
+     <div>
       <select onInput={this.changeType} className="round first">
         <option value="0">Search type</option>
         <option value="1">Room</option>
@@ -114,17 +114,16 @@ class OrderReservationSearch extends Component {
       </select>
       <input className="search" placeholder={this.state.search_placeholder} onInput={this.changeSearch} disabled={!this.state.search_type} value={this.state.search_text} />
       <select onInput={this.changeReservation} className="round">
-        <option value="">Order/Reservation</option>
+        <option selected disabled hidden>Order/Reservation</option>
+        <option value="">All</option>
         <option value="0">Order</option>
         <option value="1">Reservation</option>
       </select>
-      <select onInput={this.changeState} className="round">
-        <option value="">State</option>
-        <option value="1">Waiting</option>
-        {/* <option value="2">In Progress</option> */}
-      </select>
-      <div> <input onChange={e => this.props.update({ start_date: new Date(e.target.value).valueOf() / 1000 })} placeholder="Start Date" type="datetime-local" /> </div>
-      <div> <input onChange={e => this.props.update({ end_date: new Date(e.target.value).valueOf() / 1000 })} placeholder="End Date" type="datetime-local" /> </div>
+      </div>
+      <div className="timeInput">
+      <div> <input onChange={e => {this.props.update({ start_date: new Date(e.target.value).valueOf() / 1000 });console.log(new Date(e.target.value).valueOf() / 1000 ,"start_date")}} placeholder="Start Date" type="datetime-local" /> </div>
+      <div> <input onChange={e => {this.props.update({ end_date: new Date(e.target.value).valueOf() / 1000 });console.log(new Date(e.target.value).valueOf() / 1000 ,"end_date")}} placeholder="End Date" type="datetime-local" /> </div>
+      </div>
       {this.context.id == 0 ?
         "" : <div className="select_all" onClick={() => { this.context.setId(0) }}>
           <img src="/img/ui/selectAll.png" style={{ width: "20px", height: "20px" }} />

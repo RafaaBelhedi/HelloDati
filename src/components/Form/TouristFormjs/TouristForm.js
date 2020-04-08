@@ -12,7 +12,8 @@ class TouristForm extends Component {
 			visible: '',
 			alert_message: [],
 			rooms: [],
-			room_id: 0
+			room_id: 0,
+			disabled: false,
 
 
 		}
@@ -24,6 +25,9 @@ class TouristForm extends Component {
 		this.setState({ tourist: tourist.data[0] });
 		let rooms = await callApi('/device_rooms/available', { hotel_id: this.context.hotel_id[0] }, 'GET');
 		this.setState({ rooms: rooms.data });
+		await callApi('tourists', { hotel_id: this.context.hotel_id[0] }).then(res => {
+			this.setState({ tourists: res.data });
+		})
 	}
 
 	setData(tourist) {
@@ -38,7 +42,7 @@ class TouristForm extends Component {
 		e.preventDefault()
 
 		await this.setState({ alert_message: [] }) //pour qu'il vider la state a chaqu fois des erreur 
-
+		this.setState({ disabled: true });
 
 		if (document.forms["formEditGuest"]["first_name"].value) {
 			if (!/[a-z]{1,10}/.test(this.state.tourist.first_name)) {
@@ -114,26 +118,27 @@ class TouristForm extends Component {
 
 			this.setState({ alert_message: [...this.state.alert_message, "check in  must be lower than check out ! "] })
 		}
-		await callApi('tourists', { hotel_id: this.context.hotel_id[0] }).then(res => {
-			let otherTourists = res.data.reduce((otherTourists, item) => {
-				if (item.id !== this.state.tourist.id) {
-					otherTourists.push(item);
-				}
-				return otherTourists;
 
-			}, []);
-			otherTourists.map(tourist => {
-				return this.state.tourist.email == tourist.email && this.setState({ alert_message: [...this.state.alert_message, "Email already registered !"] })
-			})
-			otherTourists.map(tourist => {
-				return this.state.tourist.cin_number == tourist.cin_number && this.setState({ alert_message: [...this.state.alert_message, "CIN already registered !"] })
-			})
-			otherTourists.map(tourist => {
-				return this.state.tourist.phone_number == tourist.phone_number && this.setState({ alert_message: [...this.state.alert_message, "Phone number already registered !"] })
-			})
+		let otherTourists = this.state.tourists.reduce((otherTourists, item) => {
+			if (item.id !== this.state.tourist.id) {
+				otherTourists.push(item);
+			}
+			return otherTourists;
 
+		}, []);
 
+		otherTourists.map(tourist => {
+			return this.state.tourist.email == tourist.email && this.setState({ alert_message: [...this.state.alert_message, "Email already registered !"] })
 		})
+		otherTourists.map(tourist => {
+			return this.state.tourist.cin_number == tourist.cin_number && this.setState({ alert_message: [...this.state.alert_message, "CIN already registered !"] })
+		})
+		otherTourists.map(tourist => {
+			return this.state.tourist.phone_number == tourist.phone_number && this.setState({ alert_message: [...this.state.alert_message, "Phone number already registered !"] })
+		})
+
+
+
 
 		if (this.state.alert_message.length == 0)
 
@@ -146,7 +151,7 @@ class TouristForm extends Component {
 					zip_code: this.state.tourist.zip_code, address_1: this.state.tourist.address_1, cin_number: this.state.tourist.cin_number
 					, check_in: this.state.tourist.check_in, check_out: this.state.tourist.check_out
 				}
-				, 'PUT').then(res => { console.log(res, "success") }).catch(error => {
+				, 'PUT').then(res => { this.setState({ visible: "success" }); this.setState({ disabled: true }) }).catch(error => {
 					this.setState({ visible: "echec" })
 				})
 		if (this.state.room_id > 0)
@@ -154,9 +159,11 @@ class TouristForm extends Component {
 
 		if (this.state.alert_message.length == 0) {
 			this.setState({ visible: "success" })
+			this.setState({ disabled: true })
 			setTimeout(() => document.location.href = "/guest", 1000);
 		} else {
 			this.setState({ visible: "echec" })
+			this.setState({ disabled: false })
 		}
 	}
 
@@ -192,7 +199,7 @@ class TouristForm extends Component {
 					width="400"
 					height="300"
 					effect="fadeInUp"
-					onClickAway={() => this.closeModal()}
+					onClickAway={() => { this.closeModal(); this.setState({ disabled: false }) }}
 				>
 					<div className="valide-modal">
 						<img src="/img/ui/succes.png" style={{ width: "32", height: "32" }} />
@@ -618,10 +625,7 @@ class TouristForm extends Component {
 							))}
 						</select>
 
-						<button onClick={this.send}>
-							<img src="/img/ui/valid.png" />
-							Confirm
-        </button>
+						{this.state.disabled == false ? <button onClick={this.send}><img src="/img/ui/valid.png" />Confirm</button> : <button className="sendingData"> Updating...</button>}
 
 
 

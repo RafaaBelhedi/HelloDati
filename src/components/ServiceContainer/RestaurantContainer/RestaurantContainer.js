@@ -10,7 +10,7 @@ class RestaurantContainer extends Component {
     super(props)
     this.state = {
       restaurants: [
-        { id: 1 }
+        // { id:this.props.service.id }
       ]
     }
     this.updateTheState = this.updateTheState.bind(this);

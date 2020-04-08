@@ -64,6 +64,12 @@ nav li {
 ul.dashboard-sidebar {
   grid-area: services;
 }
+@media(max-width:1470px){
+  ul.dashboard-sidebar {
+    grid-area: services;
+    padding-left: 10px;
+  }
+}
 
 ul.dashboard-sidebar p {
   color: #7b96c4;
@@ -230,10 +236,13 @@ ul.dashboard-sidebar>li.sidebar-item>p {
   margin-top: 20px;
   align-items: center;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-
+  cursor: help;
+img{
+  cursor: help;
+}
   p {
     color: #ffe80a !important;
     margin-left: 5px;
+    cursor: help !important;
   }
 }

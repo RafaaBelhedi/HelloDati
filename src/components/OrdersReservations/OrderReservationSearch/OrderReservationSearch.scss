@@ -1,7 +1,9 @@
-.history-search{
+.order-search{
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 
   input:not([type="datetime-local"]), select{
     height: 35px;
@@ -19,20 +21,13 @@
     color: #314669;
   }
 
-  // select {
-  //   background-color: #314669;
-  //   color: white;
-  //   position: relative;
-  //   z-index: 50000;
-    
-  // }
-  // select:focus{
-  //   outline: none;
-  // }
+.timeInput{
+  display: flex;
+  justify-content: space-between;
+}
 
   select {
 
-    /* styling */
     position: relative;
     background-color: #314669;
     border: thin solid #314669;
@@ -45,7 +40,7 @@
     margin-right: 5px!important;
     margin-left: 5px!important;
     z-index: 10;
-  
+    padding-left: 2%;
     /* reset */
   
     margin: 0;      

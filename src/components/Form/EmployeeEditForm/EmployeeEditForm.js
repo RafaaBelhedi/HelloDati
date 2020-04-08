@@ -26,6 +26,8 @@ class EmployeeEditForm extends Component {
 			employee: {},
 			postAccess: [],
 			alert_message: [],
+			disabled : false,
+			users:[]
 		}
 		this.edit = this.edit.bind(this)
 		this.setData = this.setData.bind(this)
@@ -35,6 +37,9 @@ class EmployeeEditForm extends Component {
 	async componentDidMount() {
 		let x = await callApi('user/' + this.props.match.params.id);
 		this.setState({ data: x.data[0] });
+		await callApi('users', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+			this.setState({ users: res.data});
+		})
 	}
 
 	async setPostAccessData(postID, value) {
@@ -47,6 +52,7 @@ class EmployeeEditForm extends Component {
 
 	async edit() {
 		await this.setState({ alert_message: [] });
+		this.setState({disabled: true});
 		if (document.forms["formEditEmployee"]["name"].value) {
 			if (!/[A-Za-z]/.test(this.state.data.name)) {
 				this.setState({ alert_message: [...this.state.alert_message, "Invalid Name!"] })
@@ -109,18 +115,25 @@ class EmployeeEditForm extends Component {
 			adress: this.state.data.adress,
 			hotel_id: this.context.hotel_id[0]
 		}
-		await callApi('user/' + this.props.match.params.id, request, 'PUT').then(res => { this.setState({ visible: "success" }) }).catch(err=>{this.setState({ visible: "echec" })});
+		await callApi('user/' + this.props.match.params.id, request, 'PUT')
+		.then(res => {
+			console.log("res",res)
+				 setTimeout(() => document.location.href = "/employees", 1000);this.setState({ visible: "success" })
+			 })
+	    .catch(err=>{this.setState({ visible: "echec" })});
 		if (this.state.alert_message.length == 0) {
-			this.setState({ visible: "success" })
-			setTimeout(() => document.location.href = "/employees", 1000);
+			this.setState({ visible: "success" });
+			this.setState({ disabled: true});
 		} else {
 			this.setState({ visible: "echec" })
+			this.setState({ disabled: false})
 		}
 
 	}
 
 	setData(data) {
 		this.setState({ data: { ...this.state.data, ...data } });
+		console.log(data,"dattta")
 	}
 	closeModal = () => {
 		this.setState({
@@ -447,10 +460,7 @@ class EmployeeEditForm extends Component {
 			</div>
 			<AutoristationEdit employee={this.state.data} setData={this.setData} id={this.props.match.params.id} setPostAccessData={this.setPostAccessData} />
 
-			<button className="Button_confirm" onClick={this.edit}>
-				<img src="/img/ui/valid.png" />
-          Update
-        </button>
+			{this.state.disabled == false ?<button className="Button_confirm" onClick={this.edit}><img src="/img/ui/valid.png" /> Update</button>:<button className="sendingData"> Updating...</button>}
 		</div>;
 	}
 

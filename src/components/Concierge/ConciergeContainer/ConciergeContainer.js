@@ -4,101 +4,100 @@ import HistoryItem from '../../UI/HistoryItem'
 import OrderPopover from "../../UI/OrderPopover"
 import './ConciergeContainer.scss';
 import { UserContext } from '../../Context';
-
-
+import PopUpConfirmation from'./PopUpConfirmation'
 class ConciergeContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      requests: [],
-      color: ""
+      Demandes: [],
+      Accept:false,
+      Reject:false,
+      CurrentDemande:[],
     }
-    // this.toggle = this.toggle.bind(this)
-    // this.update = this.update.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.filterDemandes = this.filterDemandes.bind(this)
+    this.renderStatus = this.renderStatus.bind(this)
+    this.formatDate = this.formatDate.bind(this)
+    this.SetDemandes = this.SetDemandes.bind(this)
+    this.setData = this.setData.bind(this)
+
+ 
+
+    
+
+
   }
 
-  // async componentDidMount() {
-  //   let requests = await callApi('posts', { hotel_id: this.context.hotel_id[0] , parent_id:this.props.service.id })
-  // this.setState({ requests: requests.data})
-  //   console.log(requests, "lalalahistory")
-  //   this.update();
-  // }
+  async componentDidMount() {
+  await callApi('demands', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+    this.setState({ Demandes: res.data});
 
-  componentWillUnmount() {
+  })
+console.log(this.state.Demandes,"Demandes")
+console.log(this.state.CurrentDemande,"CurrentDemande")
+
   }
 
-  renderStatus(concierge_state) {
-    switch (concierge_state) {
-      case 1:
+  async  setData(Demandes) {
+    console.log(...Demandes.res.data,"Demandeswsel")
+  await this.setState({ Demandes: Demandes.res.data })
+  }
+  
+  filterDemandes(Demandes) {
+ 
+    let filteredDemandes = Demandes
+      .filter(x => new RegExp(this.props.data.room_number, 'i').test(x.room_number))
+      .filter(x => new RegExp(this.props.data.status, 'i').test(x.status))
+      .filter(x => new RegExp(this.props.data.type, 'i').test(x.type))
+    //  if (this.props.data.start_date)
+    //    filteredDemandes = filteredDemandes.filter(x => { console.log(x.created_at); return x.created_at > this.props.data.start_date })
+    // if (this.props.data.end_date)
+    //    filteredDemandes = filteredDemandes.filter(x => x.created_at < this.props.data.end_date)
+    return filteredDemandes;
+  
+  }
+
+
+  renderStatus(status) {
+    switch (status) {
+      case 0:
         return <><span style={{ backgroundColor: "#F0B17A" }}></span><p>Waiting</p></>
-      case 2:
+      case 1:
         return <><span style={{ backgroundColor: "#879CBF" }}></span><p>Accepted</p></>
-      case 3:
-        return <><span style={{ backgroundColor: "#CF6E6E" }}></span><p>Rejected</p></>
+ 
     }
   }
 
-  update(i, data) {
-    console.log(data, "rafaa")
-    let requests = [...this.state.requests]
-    console.log(requests, "rafaa kol")
-    let historyrender = requests.filter((item => item !== requests[i]))
-    console.log(historyrender, "rafaa a9al")
-    requests[i] = { ...requests[i], ...data, show: false }
-    console.log(requests[i], "rafaa")
-    console.log(i, "rafaa")
-
-
-    this.setState({ requests: [...historyrender] })
-  }
 
   formatDate(timestamp) {
+    console.log(timestamp,"timestamp")
     let date = new Date(timestamp)
 
     return <p>{date.getHours() + ":" + date.getMinutes()}<br />{date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()}</p>
   }
-
-  // filterOrders(orders) {
-  //   let filteredOrders = orders
-  //     .filter(x => new RegExp(this.props.data.room, 'i').test(x.room_number))
-  //     .filter(x => new RegExp(this.props.data.device_imei, 'i').test(x.device_imei))
-  //     .filter(x => new RegExp(this.props.data.tourist, 'i').test(x.tourist.name))
-  //     .filter(x => new RegExp(this.props.data.status, 'i').test(x.status))
-  //     .filter(x => new RegExp(this.props.data.reservation, 'i').test(x.reservation))
-
-
-
-  //   if (this.props.data.start_date)
-  //     filteredOrders = filteredOrders.filter(x => { console.log(x.created_at); return x.created_at > this.props.data.start_date })
-  //   if (this.props.data.end_date)
-  //     filteredOrders = filteredOrders.filter(x => x.created_at < this.props.data.end_date)
-  //   return filteredOrders;
-  // }
-
-  // toggle(i) {
-  //   let orders = this.state.requests.map((x, j) => {
-  //     if (i == j) return { ...x }
-  //     return { ...x, show: false }
-  //   });
-  //   orders[i].show = !orders[i].show;
-  //   this.setState({ requests: [...orders] })
-  // }
-
-  // componentDidCatch() {
-  //   this.setState({ requests: [] })
-  // }
+	closeModal(){
+		this.setState({
+			Accept: false
+		});
+	}
+ async SetDemandes(x){
+await this.setState({CurrentDemande:x})
+ }
 
   render() {
-    console.log(this.props.service,"service")
 
     return <div className="history-items">
+ 
+ {this.state.Accept == true &&
+	        <PopUpConfirmation confirmation={this.state.CurrentDemande} Accept={this.state.Accept} closeModal={this.closeModal} setData={this.setData}/>
+		   		}
       <table>
         <thead>
           <tr>
+            <th>id</th>
+            <th>Room number</th>
             <th>Type</th>
-            {/* <th>Tourist</th> */}
             <th>Status</th>
-            {/* <th>Delay</th> */}
             <th>Comment</th>
             <th>Date</th>
             <th>Action</th>
@@ -106,15 +105,19 @@ class ConciergeContainer extends Component {
         </thead>
         <tbody>
 
-         {this.state.requests.map((x, i) => <tr>
-           <td>{x.concierge_type == 0 && "House Kepping" ||x.concierge_type == 1 && "Maintenance"} </td>
-            {/* <td>{x.post.title} {x.qt > 1 ? "(x" + x.qt + ")" : ""}</td> */}
-            {/* <td>{x.tourist.name}</td> */}
-            <td className="status">{this.renderStatus(x.concierge_state)}</td>
-            {/* <td>{x.delay || '- -'}</td> */}
-         <td>{x.comment_reason}</td>
-            <td>{this.formatDate(x.created_at * 1000)}</td>
-           <td><div className="accpet_button">Accept</div></td>
+         {this.filterDemandes(this.state.Demandes).map((x, i) => <tr>
+          <td>{x.id} </td>
+          <td>{x.room_number} </td>
+           <td>{x.type == 0 && "House Kepping" ||x.type == 1 && "Maintenance"} </td>
+            <td className="status">{this.renderStatus(x.status)}</td>
+            <td>{x.comment}</td>
+            <td>{x.created_at.date }</td>
+           <td>
+             <div className="button_group">
+         {x.status==0 ? <div className="accpet_button" onClick={()=>{this.setState({Accept:true});this.SetDemandes(x)}}>Accept</div>:<div className="done_button">Done</div>}
+       
+          </div>
+          </td>
           </tr>)}
         </tbody>
       </table>

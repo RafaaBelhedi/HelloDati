@@ -106,12 +106,12 @@ class HistorySearch extends Component {
       </select>
       <input className="search" placeholder={this.state.search_placeholder} onInput={this.changeSearch} disabled={!this.state.search_type} value={this.state.search_text} />
       <select onInput={this.changeReservation} className="round">
-        <option value="">Order/Reservation</option>
+        <option selected disabled hidden>Order/Reservation</option>
         <option value="0">Order</option>
         <option value="1">Reservation</option>
       </select>
       <select onInput={this.changeState} className="round">
-        <option value="">State</option>
+        <option selected disabled hidden>State</option>
         <option value="3">Refused</option>
         <option value="4">Delivered</option>
       </select>

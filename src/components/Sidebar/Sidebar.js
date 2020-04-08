@@ -57,7 +57,7 @@ class Sidebar extends Component {
   render() {
     return (
       <nav>
-        <div className="img-container">
+        <div className="img-container" onClick={()=>{document.location.href = "/"}}>
           <img src="/img/login/login-logo.png" />
         </div>
         <ul className="dashboard-sidebar">

@@ -10,14 +10,10 @@ class Concierge extends Component {
     super(props)
     this.state = {
       data: {
-        room: '',
-        tourist: '',
-        device: '',
-        reservation: '',
-        status: '',
-        device_imei: '',
+        room_number: '',
+        status:'',
+        type:'',
       },
-      orders: []
     }
     this.setData = this.setData.bind(this)
   }

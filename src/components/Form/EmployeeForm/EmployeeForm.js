@@ -24,13 +24,20 @@ class EmployeeForm extends Component {
 				hotel_id: this.context.hotel_id[0]
 			},
 			alert_message: [],
-			postAccess: []
+			postAccess: [],
+			disabled : false,
+			users:[]
+
 		}
 		this.submit = this.submit.bind(this)
 		this.setData = this.setData.bind(this)
 		this.setPostAccessData = this.setPostAccessData.bind(this)
-
-
+	
+	}
+	async componentDidMount(){
+		await callApi('users', { hotel_id: this.context.hotel_id[0] }).then(res=>{
+			this.setState({ users: res.data});
+		})
 	}
 	async setPostAccessData(postID, value) {
 		let column = {
@@ -43,8 +50,10 @@ class EmployeeForm extends Component {
 	setData(data) {
 		this.setState({ data: { ...this.state.data, ...data } });
 	}
-	async submit() {
+	async submit(e) {
+		e.preventDefault()
 		await this.setState({ alert_message: [] });
+		this.setState({disabled: true});
 		if (document.forms["formAddEmployee"]["name"].value) {
 			if (!/[A-Za-z]/.test(this.state.data.name)) {
 				this.setState({ alert_message: [...this.state.alert_message, "Invalid Name!"] })
@@ -93,9 +102,7 @@ class EmployeeForm extends Component {
 			await this.setState({ alert_message: [...this.state.alert_message, "Missing CIN Number!"] })
 		}
 
-
-		let employees = await callApi('users', { hotel_id: this.context.hotel_id[0] })
-		employees.data.map(employee => {
+		this.state.users.map(employee => {
 			return this.state.data.email == employee.email && this.setState({ alert_message: [...this.state.alert_message, "Email already used!"] })
 		})
 		let request = {
@@ -129,15 +136,16 @@ class EmployeeForm extends Component {
 			await callApi('user', request,
 				'POST').then(res => {
 					console.log(res, "res emp")
+					setTimeout(() => document.location.href = "/employees", 1000);
 					this.setState({ visible: "success" });
 				}).catch(error => { this.setState({ visible: "echec" }) });
 		if (this.state.alert_message.length == 0) {
-			this.setState({ visible: "success" })
-			setTimeout(() => document.location.href = "/employees", 1000);
+			this.setState({ visible: "success" });
+			this.setState({ disabled: true});
 		} else {
 			this.setState({ visible: "echec" })
+			this.setState({ disabled: false})
 		}
-
 	}
 	closeModal = () => {
 		this.setState({
@@ -464,10 +472,7 @@ class EmployeeForm extends Component {
 				</div>
 			</div>
 			<AutorisationsList setData={this.setData} setPostAccessData={this.setPostAccessData} />
-			<button className="Button_confirm" onClick={this.submit}>
-				<img src="/img/ui/valid.png" />
-				ADD
-  </button>
+			{this.state.disabled == false ?<button className="Button_confirm" onClick={this.submit}><img src="/img/ui/valid.png" />ADD</button>:<button className="sendingData"> Sending...</button>}
 		</div>;
 	}
 }

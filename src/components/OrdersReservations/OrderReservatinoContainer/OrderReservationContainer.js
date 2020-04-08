@@ -15,17 +15,11 @@ class OrderReservationContainer extends Component {
     }
     this.toggle = this.toggle.bind(this)
     this.update = this.update.bind(this)
-    // this.direction=this.direction.bind(this)
   }
 
   async componentDidMount() {
     let historyItems = await callApi('shopping_orders', { hotel_id: this.props.context })
     this.setState({ historyItems: historyItems.data.filter(x => (x.status !== 0) && (x.status !== 3) && (x.status !== 2) && (x.status !== 4) && (x.status !== 5)).map(x => { return { ...x, show: false } }) })
-    // let i = setInterval(async () => {
-    //   let historyItems = await callApi('shopping_orders')
-    //   this.setState({ historyItems: historyItems.data.filter(x => x.status != 0).map(x => { return { ...x, show: false } }) })
-    // }, 20000)
-    // this.setState({ interval: i })
     console.log(historyItems, "lalalahistory")
     this.update();
   }
@@ -48,16 +42,9 @@ class OrderReservationContainer extends Component {
   }
 
   update(i, data) {
-    console.log(data, "rafaa")
     let historyItems = [...this.state.historyItems]
-    console.log(historyItems, "rafaa kol")
     let historyrender = historyItems.filter((item => item !== historyItems[i]))
-    console.log(historyrender, "rafaa a9al")
     historyItems[i] = { ...historyItems[i], ...data, show: false }
-    console.log(historyItems[i], "rafaa")
-    console.log(i, "rafaa")
-
-
     this.setState({ historyItems: [...historyrender] })
   }
 
@@ -78,7 +65,7 @@ class OrderReservationContainer extends Component {
 
 
     if (this.props.data.start_date)
-      filteredOrders = filteredOrders.filter(x => { console.log(x.created_at); return x.created_at > this.props.data.start_date })
+      filteredOrders = filteredOrders.filter(x => { console.log(x.created_at,"create"); return x.created_at > this.props.data.start_date })
     if (this.props.data.end_date)
       filteredOrders = filteredOrders.filter(x => x.created_at < this.props.data.end_date)
     return filteredOrders;
@@ -96,37 +83,21 @@ class OrderReservationContainer extends Component {
   componentDidCatch() {
     this.setState({ historyItems: [] })
   }
-  // direction(){
-  //   return new Promise((resolve,reject)=>{
-  //     if(this.context.id !== 0){
-  //     resolve( 'success' )
-  //     }else{
-  //       reject('failed')
-  //     }
-  //   })
-  // }
+
   render() {
-    // this.direction().then((message)=>{console.log(message)}).catch((error)=>{console.log(error)})
-
     var show = this.state.historyItems.filter(user => user.id == this.context.id)
-    // var show = this.state.historyItems.filter(user => user.id == sessionStorage.getItem('idNotif'))
-    console.log(this.props.context, "here i'am 2")
+    console.log(this.state.historyItems, "historyItems i'am 2")
 
-    // if (this.state.historyItems.find((item) => item.id ===776)){
-    //   this.setState({color:"red"})
-    // }
-
+  
 
 
     return <div className="history-items">
       <table>
         <thead>
           <tr>
-            {/* <th>No.</th> */}
             <th>Type</th>
             <th>Tourist</th>
             <th>Status</th>
-            {/* <th>Response Time</th> */}
             <th>Delay</th>
             <th>Price</th>
             <th>Date</th>
@@ -136,11 +107,9 @@ class OrderReservationContainer extends Component {
         <tbody>
 
           {this.filterOrders(this.context.id == 0 ? this.state.historyItems : show).map((x, i) => <tr>
-            {/* <td style={{ background: this.state.color }}>{x.id}</td> */}
             <td>{x.post.title} {x.qt > 1 ? "(x" + x.qt + ")" : ""}</td>
             <td>{x.tourist.name}</td>
             <td className="status">{this.renderStatus(x.status)}</td>
-            {/* <td></td> */}
             <td>{x.delay || '- -'}</td>
             <td>{(x.post.price * (100 - x.post.price_promo) / 100) * x.qt}<sup>TND</sup></td>
             <td>{this.formatDate(x.created_at * 1000)}</td>
