@@ -338,7 +338,7 @@ class Presentation extends Component {
               }
               }
             /></div>
-            <p style={{ color: "#CF6E6E" }}>Rejected</p>
+            <p style={{ color: "#CF6E6E" ,maxWidth:"200px"}}>Rejected</p>
           </div>
         </div>
       </div>
@@ -363,7 +363,7 @@ class Presentation extends Component {
         <div className="stats reservation">
           <table>
             <thead>
-              <th><td style={{ color: '#ffffff' }}>Top reservations</td></th>
+              <th><td style={{ color: '#ffffff' ,maxWidth:"200px"}}>Top reservations</td></th>
             </thead>
             <tbody>
               {this.state.topReservations.length > 0 ? this.state.topReservations.map((reservation, i) => <tr><td>{i + 1 + '. ' + reservation.title}</td></tr>)

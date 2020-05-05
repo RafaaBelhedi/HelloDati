@@ -156,9 +156,18 @@ table tr:last-child td:last-child {
   color: white;
   border-radius: 5px;
   flex-wrap: wrap;
-
+.nameSearch{
+  width: 15%;
+}
+.inputs{
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
   .inputs * {
     margin-left: 15px;
+ 
   }
 }
 
@@ -171,7 +180,7 @@ table tr:last-child td:last-child {
   margin: 0;
   padding-left: 20px;
   color: white;
-  width: 130px;
+  width: 150px;
 }
 
 .tourist-search input::placeholder {
@@ -216,3 +225,50 @@ table tr:last-child td:last-child {
 
   cursor: pointer;
 }
+
+@media(max-width:1740px){
+ .tourist-search {
+   width: 82%;
+ }
+ .tourist-Link-ajout{
+   width: 15%;
+ }
+}
+@media(max-width:1570px){
+  .tourist-search {
+    width: 88%;
+  }
+  .tourist-Link-ajout{
+    width: 10%;
+  }
+ }
+ @media(max-width:1470px){
+   .tourist-search-header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .tourist-search {
+    width: 88%;
+    flex-wrap: nowrap;
+    .nameSearch{
+      display: none;
+    }
+    .inputs{
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: normal;
+      input{
+        width: 20%;
+      }
+    }
+  }
+  .tourist-Link-ajout{
+    width: 10%;
+    a{
+      display: none;
+    }
+  }
+ }

@@ -134,6 +134,16 @@ console.log(this.state.historyItems,"historyItemsstate")
 
 
         <div className="topbar-hotel">
+          <div className="translate_lang">
+            <select  className="translate_lang_select">
+            <option selected disabled hidden>Lang</option>
+              <option>Eng</option>
+              <option>Fr</option>
+              <option>Ar</option>
+
+
+            </select>
+          </div>
           <div onClick={() => { this.toggle(); this.SetNotifCount() }} className="list-notification"  >
             <ReactSVG className="svg-icon" src="/img/header/notif.svg" />
             <div className="notif"  >

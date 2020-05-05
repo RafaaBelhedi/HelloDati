@@ -55,7 +55,7 @@ class Tourists extends Component {
     return <div className="tourist-items">
       <div className='tourist-search-header'>
         <div className='tourist-search '>
-          <p>Search for a Guest</p>
+        <div className="nameSearch"> <p>Search for a Guest</p></div> 
           <div className="inputs">
             <input placeholder='First Name/Last Name' onChange={(e) => this.setState({ first_name: e.target.value })} />
             <input placeholder='Room Number' onChange={(e) => this.setState({ room_number: e.target.value })} />
